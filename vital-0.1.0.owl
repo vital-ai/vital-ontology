@@ -20,6 +20,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vital-core="http://vital.ai/ontology/vital-core.owl#">
     <owl:Ontology rdf:about="http://vital.ai/ontology/vital.owl">
+        <owl:versionInfo>0.1.0</owl:versionInfo>
         <owl:imports rdf:resource="http://vital.ai/ontology/vital-core.owl"/>
     </owl:Ontology>
     
@@ -614,6 +615,16 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasDictionaryPath">
         <rdfs:domain rdf:resource="&vital;MahoutModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasDmozPath -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasDmozPath">
+        <rdfs:comment xml:lang="en">DMOZ path property that is used to map the document back to taxonomy category</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Document"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1618,6 +1629,16 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasUrl -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasUrl">
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasUrlRoot -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUrlRoot">
+        <rdfs:comment xml:lang="en">URL root property that is used to map the document back to taxonomy category</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;Document"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>

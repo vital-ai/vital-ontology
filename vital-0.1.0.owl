@@ -39,6 +39,7 @@
     <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictType"/>
     <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictClass"/>
     <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictModel"/>
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictDirectEdge"/>
     
 
 
@@ -61,6 +62,23 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasCategorizationTargetType -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasCategorizationTargetType">
+        <rdfs:comment xml:lang="en">the type of categorization, determines how the way the prediction results are mapped back to base object</rdfs:comment>
+        <rdfs:range rdf:resource="&vital;CategorizationTargetType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
     
 
 
@@ -233,6 +251,39 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:ObjectProperty rdf:about="&vital;hasLocalAuthenticationAccount">
         <rdfs:range rdf:resource="&vital;LocalAuthenticationAccount"/>
         <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasMachineLearningAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasMachineLearningAlgorithm">
+        <rdfs:range rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasMachineLearningModelType -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasMachineLearningModelType">
+        <rdfs:comment xml:lang="en">major type of ML model</rdfs:comment>
+        <rdfs:range rdf:resource="&vital;MachineLearningModelType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -456,48 +507,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#hasCategoricalTargetValue -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasCategoricalTargetValue">
-        <rdfs:domain rdf:resource="&vital;CategoricalTarget"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasCategoriesLabelsPath -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasCategoriesLabelsPath">
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasCategorizationAlgorithm -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasCategorizationAlgorithm">
-        <rdfs:comment xml:lang="en">subtype of categorization model
-for mahout one of &#39;bayes&#39;, &#39;cbayes&#39;, &#39;sgd&#39; &#39;randomforest&#39;
-for weka: TBD
-for R: TBD</rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;CategorizationModel"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasCategorizationType -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasCategorizationType">
-        <rdfs:comment xml:lang="en">major type of categorization model
-one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;CategorizationModel"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://vital.ai/ontology/vital.owl#hasCategory -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasCategory">
@@ -611,38 +620,11 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#hasDictionaryPath -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasDictionaryPath">
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://vital.ai/ontology/vital.owl#hasDmozPath -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasDmozPath">
         <rdfs:comment xml:lang="en">DMOZ path property that is used to map the document back to taxonomy category</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;Document"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasDocCount -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasDocCount">
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
-        <rdfs:range rdf:resource="&xsd;int"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasDocumentFreqPath -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasDocumentFreqPath">
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1030,7 +1012,7 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasModelPath -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasModelPath">
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
+        <rdfs:domain rdf:resource="&vital;FlowPredictModel"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1041,7 +1023,7 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     <owl:DatatypeProperty rdf:about="&vital;hasModelType">
         <rdfs:comment xml:lang="en">one of &#39;local&#39;, &#39;s3&#39;
 </rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;MahoutModel"/>
+        <rdfs:domain rdf:resource="&vital;FlowPredictModel"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1056,14 +1038,19 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&vital;Application"/>
                     <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;CategorizationTargetType"/>
                     <rdf:Description rdf:about="&vital;Category"/>
                     <rdf:Description rdf:about="&vital;Country"/>
                     <rdf:Description rdf:about="&vital;Entity"/>
-                    <rdf:Description rdf:about="&vital;MahoutModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                    <rdf:Description rdf:about="&vital;MachineLearningAlgorithm"/>
+                    <rdf:Description rdf:about="&vital;MachineLearningModelType"/>
                     <rdf:Description rdf:about="&vital;NormalizedEntity"/>
                     <rdf:Description rdf:about="&vital;NormalizedTopic"/>
                     <rdf:Description rdf:about="&vital;Phrase"/>
+                    <rdf:Description rdf:about="&vital;PredictorType"/>
                     <rdf:Description rdf:about="&vital;SynsetNode"/>
+                    <rdf:Description rdf:about="&vital;TargetType"/>
                     <rdf:Description rdf:about="&vital;Thing"/>
                     <rdf:Description rdf:about="&vital;Topic"/>
                     <rdf:Description rdf:about="&vital;USState"/>
@@ -1209,16 +1196,6 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasScore">
         <rdfs:range rdf:resource="&xsd;float"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Category"/>
-                    <rdf:Description rdf:about="&vital;Edge_hasTarget"/>
-                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
-                    <rdf:Description rdf:about="&vital;Topic"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1421,15 +1398,6 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital.owl#hasTargetName -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasTargetName">
-        <rdfs:domain rdf:resource="&vital;Target"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -2009,19 +1977,19 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#CategoricalTarget -->
-
-    <owl:Class rdf:about="&vital;CategoricalTarget">
-        <rdfs:subClassOf rdf:resource="&vital;Target"/>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital.owl#CategorizationModel -->
 
     <owl:Class rdf:about="&vital;CategorizationModel">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:comment xml:lang="en">categorization model, instances should be stored in ontology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#CategorizationTargetType -->
+
+    <owl:Class rdf:about="&vital;CategorizationTargetType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 
@@ -2679,16 +2647,6 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#Edge_hasTarget -->
-
-    <owl:Class rdf:about="&vital;Edge_hasTarget">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Target"/>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital.owl#Edge_hasTargetNode -->
 
     <owl:Class rdf:about="&vital;Edge_hasTargetNode">
@@ -2813,6 +2771,15 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
 
     <owl:Class rdf:about="&vital;FacebookAuthenticationAccount">
         <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#FlowPredictModel -->
+
+    <owl:Class rdf:about="&vital;FlowPredictModel">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represets a mahout model with all configuration properties</rdfs:comment>
     </owl:Class>
     
 
@@ -2946,11 +2913,20 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#MahoutModel -->
+    <!-- http://vital.ai/ontology/vital.owl#MachineLearningAlgorithm -->
 
-    <owl:Class rdf:about="&vital;MahoutModel">
+    <owl:Class rdf:about="&vital;MachineLearningAlgorithm">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
-        <rdfs:comment xml:lang="en">represets a mahout model with all configuration properties</rdfs:comment>
+        <rdfs:comment xml:lang="en">represents machine learning algorithm, depends on MachineLearningModelType </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MachineLearningModelType -->
+
+    <owl:Class rdf:about="&vital;MachineLearningModelType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">main model type - one per ML library used</rdfs:comment>
     </owl:Class>
     
 
@@ -3072,6 +3048,15 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital.owl#PredictorType -->
+
+    <owl:Class rdf:about="&vital;PredictorType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">groups possible predictor properties types</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital.owl#PrivateOrganization -->
 
     <owl:Class rdf:about="&vital;PrivateOrganization">
@@ -3147,19 +3132,19 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital.owl#Target -->
-
-    <owl:Class rdf:about="&vital;Target">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
-        <rdfs:comment xml:lang="en">represents classification result</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital.owl#TargetNode -->
 
     <owl:Class rdf:about="&vital;TargetNode">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#TargetType -->
+
+    <owl:Class rdf:about="&vital;TargetType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">groups possible target properties types</rdfs:comment>
     </owl:Class>
     
 
@@ -3325,6 +3310,177 @@ one of: &#39;mahout&#39;, &#39;weka&#39;, &#39;R&#39;</rdfs:comment>
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#CategorizationTargetType_Custom -->
+
+    <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_Custom">
+        <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
+        <hasName rdf:datatype="&xsd;string">Custom</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#CategorizationTargetType_DirectEdge -->
+
+    <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_DirectEdge">
+        <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
+        <hasName rdf:datatype="&xsd;string">DirectEdge</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_Bayes -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_Bayes">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">Bayes</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_CBayes -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_CBayes">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">CBayes</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_RandomForest -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_RandomForest">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">RandomForest</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_SGD -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SGD">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SGD</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_SVM -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLAlgorithm_SVM-Regression -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM-Regression">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SVM-Regression</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLModelType_Mahout -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_Mahout">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">Mahout</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLModelType_PMML -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_PMML">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">PMML</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLModelType_R -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_R">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">R</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLModelType_SVM -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_SVM">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#MLModelType_Weka -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_Weka">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">Weka</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#PredictorType_categorical -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_categorical">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#PredictorType_continuous -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_continuous">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#PredictorType_textlike -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_textlike">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">textlike</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#PredictorType_wordlike -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_wordlike">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">wordlike</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#TargetType_categorical -->
+
+    <owl:NamedIndividual rdf:about="&vital;TargetType_categorical">
+        <rdf:type rdf:resource="&vital;TargetType"/>
+        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#TargetType_continuous -->
+
+    <owl:NamedIndividual rdf:about="&vital;TargetType_continuous">
+        <rdf:type rdf:resource="&vital;TargetType"/>
+        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+    </owl:NamedIndividual>
     
 
 

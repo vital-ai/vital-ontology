@@ -31,19 +31,107 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&vital-core;hasTransientPropertyFlag"/>
-    <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeDestDomain"/>
-    <owl:AnnotationProperty rdf:about="&vital-core;hasDontPersistFlag"/>
-    <owl:AnnotationProperty rdf:about="&vital-core;hasEdgeDestDomain"/>
-    <owl:AnnotationProperty rdf:about="&vital-core;hasSkipExpansionFlag">
-        <rdfs:range rdf:resource="&xsd;boolean"/>
-    </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&vital-core;isAnalyzedNoEquals"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasDontIndexFlag -->
+
     <owl:AnnotationProperty rdf:about="&vital-core;hasDontIndexFlag">
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:AnnotationProperty>
-    <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeSrcDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasDontPersistFlag -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasDontPersistFlag"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeDestDomain -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasEdgeDestDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeSrcDomain -->
+
     <owl:AnnotationProperty rdf:about="&vital-core;hasEdgeSrcDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeDestDomain -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeDestDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeSrcDomain -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeSrcDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasMaxValueExclusive -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasMaxValueExclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasMaxValueInclusive -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasMaxValueInclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasMinValueExclusive -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasMinValueExclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasMinValueInclusive -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasMinValueInclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasRestrictionClasses -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasRestrictionClasses">
+        <rdfs:comment xml:lang="en">a single class or union of classes the restriction applies to</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasSkipExpansionFlag -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasSkipExpansionFlag">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasTransientPropertyFlag -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasTransientPropertyFlag"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#isAnalyzedNoEquals -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;isAnalyzedNoEquals"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#isInternalStore -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;isInternalStore"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#isPrologTokenizable -->
+
     <owl:AnnotationProperty rdf:about="&vital-core;isPrologTokenizable"/>
     
 
@@ -136,6 +224,25 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasOntologyIRI -->
+
+    <owl:ObjectProperty rdf:about="&vital-core;hasOntologyIRI">
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -253,7 +360,7 @@
     <owl:DatatypeProperty rdf:about="&vital-core;hasNocacheFlag">
         <hasTransientPropertyFlag rdf:datatype="&xsd;boolean">true</hasTransientPropertyFlag>
         <rdfs:comment xml:lang="en">transient property - should never be persisted in dataserver,
-if true, don&#39;t put into vital client cache. stored proc that returns objects and sets value to true so that they would be reloaded next time</rdfs:comment>
+if true, don&apos;t put into vital client cache. stored proc that returns objects and sets value to true so that they would be reloaded next time</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
         <rdfs:domain>
             <owl:Class>
@@ -310,6 +417,15 @@ if true, don&#39;t put into vital client cache. stored proc that returns objects
     <owl:DatatypeProperty rdf:about="&vital-core;hasProcessflowTimestamp">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasRestrictionValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasRestrictionValue">
+        <rdfs:domain rdf:resource="&vital-core;RestrictionAnnotationValue"/>
+        <rdfs:subPropertyOf rdf:resource="&owl;topDataProperty"/>
     </owl:DatatypeProperty>
     
 
@@ -372,6 +488,27 @@ if true, don&#39;t put into vital client cache. stored proc that returns objects
                     <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
                     <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
                     <rdf:Description rdf:about="&vital-core;VITAL_URIReference"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#hasVersionIRI -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasVersionIRI">
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
+        <hasDontIndexFlag xml:lang="en">true</hasDontIndexFlag>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -447,6 +584,14 @@ if true, don&#39;t put into vital client cache. stored proc that returns objects
 
     <owl:Class rdf:about="&vital-core;ProcessFlowStep">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core.owl#RestrictionAnnotationValue -->
+
+    <owl:Class rdf:about="&vital-core;RestrictionAnnotationValue">
+        <rdfs:comment xml:lang="en">individuals of this class are used to provide data property restrictions (it&apos;s independent from owl2 restrictions)</rdfs:comment>
     </owl:Class>
     
 
@@ -561,5 +706,5 @@ if true, don&#39;t put into vital client cache. stored proc that returns objects
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

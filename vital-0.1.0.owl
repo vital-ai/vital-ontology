@@ -34,23 +34,42 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetType"/>
-    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetValue"/>
-    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictType"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationPredictClass -->
+
     <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictClass"/>
-    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictModel"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationPredictDirectEdge -->
+
     <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictDirectEdge"/>
     
 
 
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Datatypes
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationPredictModel -->
 
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictModel"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationPredictType -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictType"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationTargetType -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetType"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasAnnotationTargetValue -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetValue"/>
     
 
 
@@ -369,7 +388,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasWikipediaURL -->
 
     <owl:ObjectProperty rdf:about="&vital;hasWikipediaURL">
-        <rdfs:comment xml:lang="en">A property added to test graph object&#39;s resource property conecpt</rdfs:comment>
+        <rdfs:comment xml:lang="en">A property added to test graph object&apos;s resource property conecpt</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -1021,7 +1040,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasModelType -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasModelType">
-        <rdfs:comment xml:lang="en">one of &#39;local&#39;, &#39;s3&#39;
+        <rdfs:comment xml:lang="en">one of &apos;local&apos;, &apos;s3&apos;
 </rdfs:comment>
         <rdfs:domain rdf:resource="&vital;FlowPredictModel"/>
         <rdfs:range rdf:resource="&xsd;string"/>
@@ -1032,31 +1051,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasName -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasName">
+        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Application"/>
-                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
-                    <rdf:Description rdf:about="&vital;CategorizationTargetType"/>
-                    <rdf:Description rdf:about="&vital;Category"/>
-                    <rdf:Description rdf:about="&vital;Country"/>
-                    <rdf:Description rdf:about="&vital;Entity"/>
-                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
-                    <rdf:Description rdf:about="&vital;MachineLearningAlgorithm"/>
-                    <rdf:Description rdf:about="&vital;MachineLearningModelType"/>
-                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
-                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
-                    <rdf:Description rdf:about="&vital;Phrase"/>
-                    <rdf:Description rdf:about="&vital;PredictorType"/>
-                    <rdf:Description rdf:about="&vital;SynsetNode"/>
-                    <rdf:Description rdf:about="&vital;TargetType"/>
-                    <rdf:Description rdf:about="&vital;Thing"/>
-                    <rdf:Description rdf:about="&vital;Topic"/>
-                    <rdf:Description rdf:about="&vital;USState"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -2137,8 +2133,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetDerivationallyRelatedForm">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
     </owl:Class>
     
 
@@ -2347,8 +2343,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetSubstanceMeronym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
     </owl:Class>
     
 
@@ -4037,7 +4033,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;vital.country.cote_divoire_ivory_coast">
         <rdf:type rdf:resource="&vital;Country"/>
-        <hasName rdf:datatype="&xsd;string">Cote d&#39;Ivoire (Ivory Coast)</hasName>
+        <hasName rdf:datatype="&xsd;string">Cote d&apos;Ivoire (Ivory Coast)</hasName>
     </owl:NamedIndividual>
     
 
@@ -6460,5 +6456,5 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 3.2.3.1824) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
 

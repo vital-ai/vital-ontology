@@ -1191,6 +1191,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital.owl#hasScore -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasScore">
+        <rdfs:domain rdf:resource="&vital;Topic"/>
         <rdfs:range rdf:resource="&xsd;float"/>
     </owl:DatatypeProperty>
     

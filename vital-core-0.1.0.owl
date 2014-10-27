@@ -477,7 +477,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     <!-- http://vital.ai/ontology/vital-core.owl#hasTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasTimestamp">
-        <rdfs:label xml:lang="en">common for all Vital domain objects, the timestamp is meant for cache/versioning control</rdfs:label>
+        <rdfs:comment xml:lang="en">common for all Vital domain objects, the timestamp is meant for cache/versioning control</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;long"/>
         <rdfs:domain>
             <owl:Class>
@@ -615,7 +615,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     <!-- http://vital.ai/ontology/vital-core.owl#VITAL_Container -->
 
     <owl:Class rdf:about="&vital-core;VITAL_Container">
-        <rdfs:label xml:lang="en">The container for all vital non-graph objects like results sets, messages and payloads etc.</rdfs:label>
+        <rdfs:comment xml:lang="en">The container for all vital non-graph objects like results sets, messages and payloads etc.</rdfs:comment>
     </owl:Class>
     
 
@@ -684,7 +684,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     <!-- http://vital.ai/ontology/vital-core.owl#VITAL_URIReference -->
 
     <owl:Class rdf:about="&vital-core;VITAL_URIReference">
-        <rdfs:label xml:lang="en">The class that holds the URI and timestamp of another URI Resource</rdfs:label>
+        <rdfs:comment xml:lang="en">The class that holds the URI and timestamp of another URI Resource</rdfs:comment>
     </owl:Class>
     
 

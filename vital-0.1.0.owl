@@ -467,6 +467,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
                     <rdf:Description rdf:about="&vital;AppKey"/>
                     <rdf:Description rdf:about="&vital;Application"/>
                     <rdf:Description rdf:about="&vital;DataSegment"/>
+                    <rdf:Description rdf:about="&vital;Datascript"/>
                     <rdf:Description rdf:about="&vital;User"/>
                 </owl:unionOf>
             </owl:Class>
@@ -635,6 +636,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasCustomerid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCustomerid">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -886,6 +896,44 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital.owl#hasInterval -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasInterval">
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasIntervalTimeUnit -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasIntervalTimeUnit">
+        <rdfs:comment xml:lang="en">one of: SECOND, MINUTE, HOUR, DAY</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasJobID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasJobID">
+        <rdfs:domain rdf:resource="&vital;DatascriptRun"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasJobStatus -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasJobStatus">
+        <rdfs:comment xml:lang="en">scheduled, running, complete</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;DatascriptRun"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital.owl#hasKey -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasKey">
@@ -899,6 +947,25 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasLastAccessTime">
         <rdfs:domain rdf:resource="&vital;AuthenticationToken"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasLastCompilationError -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastCompilationError">
+        <rdfs:comment xml:lang="en">if null then the script has been compiled successfully</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasLastModifiedDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastModifiedDate">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
@@ -1202,6 +1269,31 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:DatatypeProperty rdf:about="&vital;hasScreenName">
         <rdfs:domain rdf:resource="&vital;TwitterAuthenticationAccount"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasScriptBody -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScriptBody">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#hasScriptPath -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScriptPath">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Datascript"/>
+                    <rdf:Description rdf:about="&vital;DatascriptRun"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1720,10 +1812,29 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital.owl#isAdminScript -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isAdminScript">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital.owl#isApplied -->
 
     <owl:DatatypeProperty rdf:about="&vital;isApplied">
         <rdfs:domain rdf:resource="&vital;PasswordResetRequest"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#isCallable -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isCallable">
+        <rdfs:comment xml:lang="en">a flag that indicates if a job also implements Script interface - may be callable</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1809,6 +1920,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital.owl#isRegularScript -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isRegularScript">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital.owl#isStandaloneTag -->
 
     <owl:DatatypeProperty rdf:about="&vital;isStandaloneTag">
@@ -1822,6 +1942,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isStatusOn">
         <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#isSuperAdminScript -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isSuperAdminScript">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -2045,6 +2174,24 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;DataSegment">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#Datascript -->
+
+    <owl:Class rdf:about="&vital;Datascript">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents an installed datascript</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#DatascriptRun -->
+
+    <owl:Class rdf:about="&vital;DatascriptRun">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents a datascript called in the background (async)</rdfs:comment>
     </owl:Class>
     
 
@@ -2857,6 +3004,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;ImageReference">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital.owl#Job -->
+
+    <owl:Class rdf:about="&vital;Job">
+        <rdfs:subClassOf rdf:resource="&vital;Datascript"/>
+        <rdfs:comment xml:lang="en">represents an installed recurring Datascript (Job)</rdfs:comment>
     </owl:Class>
     
 
@@ -6457,5 +6613,5 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 

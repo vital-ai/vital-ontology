@@ -4,20 +4,20 @@
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
     <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY vital-core "http://vital.ai/ontology/vital-core#" >
     <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY vital-core "http://vital.ai/ontology/vital-core.owl#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
 
-<rdf:RDF xmlns="http://vital.ai/ontology/vital-core.owl#"
-     xml:base="http://vital.ai/ontology/vital-core.owl"
+<rdf:RDF xmlns="http://vital.ai/ontology/vital-core#"
+     xml:base="http://vital.ai/ontology/vital-core"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:vital-core="http://vital.ai/ontology/vital-core.owl#">
-    <owl:Ontology rdf:about="http://vital.ai/ontology/vital-core.owl">
+     xmlns:vital-core="http://vital.ai/ontology/vital-core#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/vital-core">
         <owl:versionInfo>0.1.0</owl:versionInfo>
     </owl:Ontology>
     
@@ -34,7 +34,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasDontIndexFlag -->
+    <!-- http://vital.ai/ontology/vital-core#hasDontIndexFlag -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasDontIndexFlag">
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -42,61 +42,61 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasDontPersistFlag -->
+    <!-- http://vital.ai/ontology/vital-core#hasDontPersistFlag -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasDontPersistFlag"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeDestDomain -->
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeDestDomain -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasEdgeDestDomain"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeSrcDomain -->
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeSrcDomain -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasEdgeSrcDomain"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeDestDomain -->
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestDomain -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeDestDomain"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeSrcDomain -->
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeSrcDomain -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasHyperEdgeSrcDomain"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasMaxValueExclusive -->
+    <!-- http://vital.ai/ontology/vital-core#hasMaxValueExclusive -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasMaxValueExclusive"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasMaxValueInclusive -->
+    <!-- http://vital.ai/ontology/vital-core#hasMaxValueInclusive -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasMaxValueInclusive"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasMinValueExclusive -->
+    <!-- http://vital.ai/ontology/vital-core#hasMinValueExclusive -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasMinValueExclusive"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasMinValueInclusive -->
+    <!-- http://vital.ai/ontology/vital-core#hasMinValueInclusive -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasMinValueInclusive"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasRestrictionClasses -->
+    <!-- http://vital.ai/ontology/vital-core#hasRestrictionClasses -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasRestrictionClasses">
         <rdfs:comment xml:lang="en">a single class or union of classes the restriction applies to</rdfs:comment>
@@ -104,7 +104,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasSkipExpansionFlag -->
+    <!-- http://vital.ai/ontology/vital-core#hasSkipExpansionFlag -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasSkipExpansionFlag">
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -112,25 +112,25 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasTransientPropertyFlag -->
+    <!-- http://vital.ai/ontology/vital-core#hasTransientPropertyFlag -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasTransientPropertyFlag"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#isAnalyzedNoEquals -->
+    <!-- http://vital.ai/ontology/vital-core#isAnalyzedNoEquals -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;isAnalyzedNoEquals"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#isInternalStore -->
+    <!-- http://vital.ai/ontology/vital-core#isInternalStore -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;isInternalStore"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#isPrologTokenizable -->
+    <!-- http://vital.ai/ontology/vital-core#isPrologTokenizable -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;isPrologTokenizable"/>
     
@@ -147,7 +147,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#geoLocation -->
+    <!-- http://vital.ai/ontology/vital-core#geoLocation -->
 
     <rdfs:Datatype rdf:about="&vital-core;geoLocation">
         <rdfs:comment xml:lang="en">comma-separated &lt;longitude,latitude&gt; pair, signed, any precision</rdfs:comment>
@@ -166,7 +166,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#contains -->
+    <!-- http://vital.ai/ontology/vital-core#contains -->
 
     <owl:ObjectProperty rdf:about="&vital-core;contains">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Container"/>
@@ -174,7 +174,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeDestination -->
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeDestination -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasEdgeDestination">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Edge"/>
@@ -183,7 +183,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasEdgeSource -->
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeSource -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasEdgeSource">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Edge"/>
@@ -192,7 +192,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeDestination -->
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestination -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasHyperEdgeDestination">
         <rdfs:domain rdf:resource="&vital-core;VITAL_HyperEdge"/>
@@ -210,7 +210,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasHyperEdgeSource -->
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeSource -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasHyperEdgeSource">
         <rdfs:domain rdf:resource="&vital-core;VITAL_HyperEdge"/>
@@ -228,10 +228,10 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasOntologyIRI -->
+    <!-- http://vital.ai/ontology/vital-core#hasOntologyIRI -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasOntologyIRI">
-        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <vital-core:isInternalStore rdf:datatype="&xsd;boolean">true</vital-core:isInternalStore>
         <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
@@ -247,7 +247,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasReferringURI -->
+    <!-- http://vital.ai/ontology/vital-core#hasReferringURI -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasReferringURI">
         <rdfs:domain rdf:resource="&vital-core;VITAL_URIReference"/>
@@ -266,7 +266,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasEventPolarity -->
+    <!-- http://vital.ai/ontology/vital-core#hasEventPolarity -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasEventPolarity">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Event"/>
@@ -275,7 +275,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasInferenceProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasInferenceProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasInferenceProcessflowStatus">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowStatus"/>
@@ -283,7 +283,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasInferenceProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasInferenceProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasInferenceProcessflowTimestamp">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowTimestamp"/>
@@ -291,7 +291,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasIntegratorProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasIntegratorProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasIntegratorProcessflowStatus">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowStatus"/>
@@ -299,7 +299,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasIntegratorProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasIntegratorProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasIntegratorProcessflowTimestamp">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowTimestamp"/>
@@ -307,7 +307,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasListIndex -->
+    <!-- http://vital.ai/ontology/vital-core#hasListIndex -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasListIndex">
         <rdfs:range rdf:resource="&xsd;int"/>
@@ -323,7 +323,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasLoggerProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasLoggerProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasLoggerProcessflowStatus">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowStatus"/>
@@ -331,7 +331,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasLoggerProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasLoggerProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasLoggerProcessflowTimestamp">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowTimestamp"/>
@@ -339,7 +339,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasNlpProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasNlpProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasNlpProcessflowStatus">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowStatus"/>
@@ -347,7 +347,7 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasNlpProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasNlpProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasNlpProcessflowTimestamp">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowTimestamp"/>
@@ -355,10 +355,10 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasNocacheFlag -->
+    <!-- http://vital.ai/ontology/vital-core#hasNocacheFlag -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasNocacheFlag">
-        <hasTransientPropertyFlag rdf:datatype="&xsd;boolean">true</hasTransientPropertyFlag>
+        <vital-core:hasTransientPropertyFlag rdf:datatype="&xsd;boolean">true</vital-core:hasTransientPropertyFlag>
         <rdfs:comment xml:lang="en">transient property - should never be persisted in dataserver,
 if true, don&apos;t put into vital client cache. stored proc that returns objects and sets value to true so that they would be reloaded next time</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -378,7 +378,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasPayloadFormat -->
+    <!-- http://vital.ai/ontology/vital-core#hasPayloadFormat -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasPayloadFormat">
         <rdfs:domain rdf:resource="&vital-core;Message"/>
@@ -387,7 +387,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasPredictProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasPredictProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasPredictProcessflowStatus">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowStatus"/>
@@ -395,7 +395,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasPredictProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasPredictProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasPredictProcessflowTimestamp">
         <rdfs:subPropertyOf rdf:resource="&vital-core;hasProcessflowTimestamp"/>
@@ -403,7 +403,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasProcessflowStatus -->
+    <!-- http://vital.ai/ontology/vital-core#hasProcessflowStatus -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasProcessflowStatus">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
@@ -412,7 +412,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasProcessflowTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasProcessflowTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasProcessflowTimestamp">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
@@ -421,7 +421,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasRestrictionValue -->
+    <!-- http://vital.ai/ontology/vital-core#hasRestrictionValue -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasRestrictionValue">
         <rdfs:domain rdf:resource="&vital-core;RestrictionAnnotationValue"/>
@@ -430,7 +430,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasResultIndex -->
+    <!-- http://vital.ai/ontology/vital-core#hasResultIndex -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasResultIndex">
         <rdfs:domain rdf:resource="&vital-core;Result"/>
@@ -439,7 +439,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasResultScore -->
+    <!-- http://vital.ai/ontology/vital-core#hasResultScore -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasResultScore">
         <rdfs:domain rdf:resource="&vital-core;Result"/>
@@ -448,7 +448,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasSerializedJSON -->
+    <!-- http://vital.ai/ontology/vital-core#hasSerializedJSON -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasSerializedJSON">
         <rdfs:domain rdf:resource="&vital-core;VITAL_PayloadNode"/>
@@ -457,7 +457,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasSerializedPayload -->
+    <!-- http://vital.ai/ontology/vital-core#hasSerializedPayload -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasSerializedPayload">
         <rdfs:domain rdf:resource="&vital-core;Message"/>
@@ -465,7 +465,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasSerializedRDF -->
+    <!-- http://vital.ai/ontology/vital-core#hasSerializedRDF -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasSerializedRDF">
         <rdfs:domain rdf:resource="&vital-core;VITAL_PayloadNode"/>
@@ -474,7 +474,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasTimestamp -->
+    <!-- http://vital.ai/ontology/vital-core#hasTimestamp -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasTimestamp">
         <rdfs:comment xml:lang="en">common for all Vital domain objects, the timestamp is meant for cache/versioning control</rdfs:comment>
@@ -495,12 +495,12 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#hasVersionIRI -->
+    <!-- http://vital.ai/ontology/vital-core#hasVersionIRI -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasVersionIRI">
-        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <vital-core:isInternalStore rdf:datatype="&xsd;boolean">true</vital-core:isInternalStore>
         <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
-        <hasDontIndexFlag xml:lang="en">true</hasDontIndexFlag>
+        <vital-core:hasDontIndexFlag xml:lang="en">true</vital-core:hasDontIndexFlag>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
             <owl:Class>
@@ -516,7 +516,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#isActive -->
+    <!-- http://vital.ai/ontology/vital-core#isActive -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;isActive">
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -536,7 +536,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#isPayloadCompressed -->
+    <!-- http://vital.ai/ontology/vital-core#isPayloadCompressed -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;isPayloadCompressed">
         <rdfs:domain rdf:resource="&vital-core;Message"/>
@@ -556,7 +556,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#Message -->
+    <!-- http://vital.ai/ontology/vital-core#Message -->
 
     <owl:Class rdf:about="&vital-core;Message">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -564,7 +564,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#Payload -->
+    <!-- http://vital.ai/ontology/vital-core#Payload -->
 
     <owl:Class rdf:about="&vital-core;Payload">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -572,7 +572,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#ProcessFlow -->
+    <!-- http://vital.ai/ontology/vital-core#ProcessFlow -->
 
     <owl:Class rdf:about="&vital-core;ProcessFlow">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -580,7 +580,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#ProcessFlowStep -->
+    <!-- http://vital.ai/ontology/vital-core#ProcessFlowStep -->
 
     <owl:Class rdf:about="&vital-core;ProcessFlowStep">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -588,7 +588,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#RestrictionAnnotationValue -->
+    <!-- http://vital.ai/ontology/vital-core#RestrictionAnnotationValue -->
 
     <owl:Class rdf:about="&vital-core;RestrictionAnnotationValue">
         <rdfs:comment xml:lang="en">individuals of this class are used to provide data property restrictions (it&apos;s independent from owl2 restrictions)</rdfs:comment>
@@ -596,7 +596,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#Result -->
+    <!-- http://vital.ai/ontology/vital-core#Result -->
 
     <owl:Class rdf:about="&vital-core;Result">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -604,7 +604,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#ResultSet -->
+    <!-- http://vital.ai/ontology/vital-core#ResultSet -->
 
     <owl:Class rdf:about="&vital-core;ResultSet">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -612,7 +612,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_Container -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Container -->
 
     <owl:Class rdf:about="&vital-core;VITAL_Container">
         <rdfs:comment xml:lang="en">The container for all vital non-graph objects like results sets, messages and payloads etc.</rdfs:comment>
@@ -620,7 +620,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_Edge -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Edge -->
 
     <owl:Class rdf:about="&vital-core;VITAL_Edge">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -628,7 +628,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_Event -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Event -->
 
     <owl:Class rdf:about="&vital-core;VITAL_Event">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
@@ -636,7 +636,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_HyperEdge -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_HyperEdge -->
 
     <owl:Class rdf:about="&vital-core;VITAL_HyperEdge">
         <rdfs:subClassOf rdf:resource="&owl;Thing"/>
@@ -644,19 +644,19 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_HyperNode -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_HyperNode -->
 
     <owl:Class rdf:about="&vital-core;VITAL_HyperNode"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_Node -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Node -->
 
     <owl:Class rdf:about="&vital-core;VITAL_Node"/>
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_PayloadNode -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_PayloadNode -->
 
     <owl:Class rdf:about="&vital-core;VITAL_PayloadNode">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
@@ -665,7 +665,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_PeerEdge -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_PeerEdge -->
 
     <owl:Class rdf:about="&vital-core;VITAL_PeerEdge">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Edge"/>
@@ -673,7 +673,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_TaxonomyEdge -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge -->
 
     <owl:Class rdf:about="&vital-core;VITAL_TaxonomyEdge">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Edge"/>
@@ -681,7 +681,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#VITAL_URIReference -->
+    <!-- http://vital.ai/ontology/vital-core#VITAL_URIReference -->
 
     <owl:Class rdf:about="&vital-core;VITAL_URIReference">
         <rdfs:comment xml:lang="en">The class that holds the URI and timestamp of another URI Resource</rdfs:comment>
@@ -689,7 +689,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#Workflow -->
+    <!-- http://vital.ai/ontology/vital-core#Workflow -->
 
     <owl:Class rdf:about="&vital-core;Workflow">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -697,7 +697,7 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core.owl#WorkflowStep -->
+    <!-- http://vital.ai/ontology/vital-core#WorkflowStep -->
 
     <owl:Class rdf:about="&vital-core;WorkflowStep">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
@@ -706,5 +706,5 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
 
 
 
-<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
 

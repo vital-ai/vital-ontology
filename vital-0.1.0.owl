@@ -3,10 +3,10 @@
 
 <!DOCTYPE rdf:RDF [
     <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY vital "http://vital.ai/ontology/vital#" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
     <!ENTITY vital-core "http://vital.ai/ontology/vital-core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
     <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
 ]>
 
@@ -892,6 +892,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasInfo -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasInfo">
+        <rdfs:comment xml:lang="en">a custom info (stats) object that may be returned by a datascript</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;DatascriptInfo"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -2221,6 +2231,14 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#DatascriptInfo -->
+
+    <owl:Class rdf:about="&vital;DatascriptInfo">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#DatascriptRun -->
 
     <owl:Class rdf:about="&vital;DatascriptRun">
@@ -2275,8 +2293,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetAlsoSee">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
     </owl:Class>
     
 
@@ -2285,8 +2303,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetAntonym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
     </owl:Class>
     
 
@@ -2305,8 +2323,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetCause">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;VerbSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
     </owl:Class>
     
 
@@ -2425,8 +2443,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetMemberMeronym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
     </owl:Class>
     
 
@@ -2465,8 +2483,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetPartHolonym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
     </owl:Class>
     
 
@@ -2475,8 +2493,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetPartMeronym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
     </owl:Class>
     
 
@@ -2485,8 +2503,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetParticiple">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
     </owl:Class>
     
 
@@ -2515,8 +2533,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetSubstanceHolonym">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
     </owl:Class>
     
 
@@ -2535,8 +2553,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_WordnetVerbGroup">
         <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;VerbSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
     </owl:Class>
     
 
@@ -2597,8 +2615,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;Edge_hasChildCategory">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
         <rdfs:comment xml:lang="en">taxonomy type edge but a subclass of peer edge type due to same source and destination domain</rdfs:comment>
-        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Category"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Category"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Category"/>
     </owl:Class>
     
 

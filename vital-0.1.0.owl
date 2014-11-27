@@ -438,6 +438,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasAggregationType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAggregationType">
+        <rdfs:comment xml:lang="en">one of: &apos;count&apos;, &apos;sum&apos;, &apos;average&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasAnnotationName -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasAnnotationName">
@@ -1796,6 +1806,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasValue">
+        <rdfs:domain rdf:resource="&vital;AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasVerificationDate -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasVerificationDate">
@@ -2066,6 +2085,14 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;AdverbSynsetNode">
         <rdfs:subClassOf rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AggregationResult -->
+
+    <owl:Class rdf:about="&vital;AggregationResult">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

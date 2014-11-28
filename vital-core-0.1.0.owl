@@ -556,23 +556,6 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
-    <!-- http://vital.ai/ontology/vital-core#Binding -->
-
-    <owl:Class rdf:about="&vital-core;Binding">
-        <rdfs:subClassOf rdf:resource="&vital-core;GraphContainerObject"/>
-        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://vital.ai/ontology/vital-core#GraphContainerObject -->
-
-    <owl:Class rdf:about="&vital-core;GraphContainerObject">
-        <rdfs:comment xml:lang="en">a graph object which properties are arbitrary and not validated (not defined in ontology)</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital-core#Message -->
 
     <owl:Class rdf:about="&vital-core;Message">
@@ -649,6 +632,14 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
 
     <owl:Class rdf:about="&vital-core;VITAL_Event">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject -->
+
+    <owl:Class rdf:about="&vital-core;VITAL_GraphContainerObject">
+        <rdfs:comment xml:lang="en">a graph object which properties are arbitrary and not validated (not defined in ontology)</rdfs:comment>
     </owl:Class>
     
 

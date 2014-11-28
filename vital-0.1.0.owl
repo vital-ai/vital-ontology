@@ -441,7 +441,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasAggregationType -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasAggregationType">
-        <rdfs:comment xml:lang="en">one of: &apos;count&apos;, &apos;sum&apos;, &apos;average&apos;</rdfs:comment>
+        <rdfs:comment xml:lang="en">one of: &apos;average&apos;, &apos;count&apos;, &apos;min&apos;, &apos;max&apos;, &apos;sum&apos;</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;AggregationResult"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1285,6 +1285,46 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasRdfContext -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRdfContext">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRdfObject -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRdfObject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRdfPredicate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRdfPredicate">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRdfSubject -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRdfSubject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasRelevance -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasRelevance">
@@ -1978,6 +2018,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isOpeningTag">
         <rdfs:domain rdf:resource="&vital;TagElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isPositiveResponse -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isPositiveResponse">
+        <rdfs:domain rdf:resource="&vital;SparqlAskResponse"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -3307,6 +3356,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#RDFStatement -->
+
+    <owl:Class rdf:about="&vital;RDFStatement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">rdf statement with optional context, may be a result of sparql CONSTRUCT query etc</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#RememberMeCookie -->
 
     <owl:Class rdf:about="&vital;RememberMeCookie">
@@ -3336,6 +3394,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;ShortUrlMapping">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:comment rdf:datatype="&xsd;string">a class the represents short-id -&gt; full URI mapping</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#SparqlAskResponse -->
+
+    <owl:Class rdf:about="&vital;SparqlAskResponse">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">result of sparql ASK query ( yes/no )</rdfs:comment>
     </owl:Class>
     
 

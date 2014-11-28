@@ -231,7 +231,7 @@
     <!-- http://vital.ai/ontology/vital-core#hasOntologyIRI -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasOntologyIRI">
-        <vital-core:isInternalStore rdf:datatype="&xsd;boolean">true</vital-core:isInternalStore>
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
         <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
@@ -358,7 +358,7 @@
     <!-- http://vital.ai/ontology/vital-core#hasNocacheFlag -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasNocacheFlag">
-        <vital-core:hasTransientPropertyFlag rdf:datatype="&xsd;boolean">true</vital-core:hasTransientPropertyFlag>
+        <hasTransientPropertyFlag rdf:datatype="&xsd;boolean">true</hasTransientPropertyFlag>
         <rdfs:comment xml:lang="en">transient property - should never be persisted in dataserver,
 if true, don&apos;t put into vital client cache. stored proc that returns objects and sets value to true so that they would be reloaded next time</rdfs:comment>
         <rdfs:range rdf:resource="&xsd;boolean"/>
@@ -498,9 +498,9 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     <!-- http://vital.ai/ontology/vital-core#hasVersionIRI -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasVersionIRI">
-        <vital-core:isInternalStore rdf:datatype="&xsd;boolean">true</vital-core:isInternalStore>
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
         <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
-        <vital-core:hasDontIndexFlag xml:lang="en">true</vital-core:hasDontIndexFlag>
+        <hasDontIndexFlag xml:lang="en">true</hasDontIndexFlag>
         <rdfs:range rdf:resource="&xsd;string"/>
         <rdfs:domain>
             <owl:Class>
@@ -553,6 +553,23 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Binding -->
+
+    <owl:Class rdf:about="&vital-core;Binding">
+        <rdfs:subClassOf rdf:resource="&vital-core;GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#GraphContainerObject -->
+
+    <owl:Class rdf:about="&vital-core;GraphContainerObject">
+        <rdfs:comment xml:lang="en">a graph object which properties are arbitrary and not validated (not defined in ontology)</rdfs:comment>
+    </owl:Class>
     
 
 

@@ -659,6 +659,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasDegree -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasDegree">
+        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasDmozPath -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasDmozPath">
@@ -2197,15 +2206,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital#Binding -->
-
-    <owl:Class rdf:about="&vital;Binding">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_GraphContainerObject"/>
-        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital#BusinessOrganization -->
 
     <owl:Class rdf:about="&vital;BusinessOrganization">
@@ -3412,6 +3412,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;SparqlAskResponse">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:comment xml:lang="en">result of sparql ASK query ( yes/no )</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#SparqlBinding -->
+
+    <owl:Class rdf:about="&vital;SparqlBinding">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
     </owl:Class>
     
 

@@ -96,10 +96,28 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasMultipleValues -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasMultipleValues">
+        <rdfs:comment xml:lang="en">mutually exclusive with hasSingleValue - indicates if a property holds a collection of values instead of single instance</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasRestrictionClasses -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasRestrictionClasses">
         <rdfs:comment xml:lang="en">a single class or union of classes the restriction applies to</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSingleValue -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasSingleValue">
+        <rdfs:comment xml:lang="en">default for all properties</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:AnnotationProperty>
     
 
@@ -121,6 +139,15 @@
     <!-- http://vital.ai/ontology/vital-core#isAnalyzedNoEquals -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;isAnalyzedNoEquals"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isDefaultLabel -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;isDefaultLabel">
+        <rdfs:comment xml:lang="en">a ui annotation to indicate if a property should be used as a label</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:AnnotationProperty>
     
 
 

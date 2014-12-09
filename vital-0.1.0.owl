@@ -928,15 +928,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasInterval -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasInterval">
+        <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;int"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Job"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminJob"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -945,15 +938,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasIntervalTimeUnit">
         <rdfs:comment xml:lang="en">one of: SECOND, MINUTE, HOUR, DAY</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Job"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminJob"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -999,15 +985,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasLastCompilationError">
         <rdfs:comment xml:lang="en">if null then the script has been compiled successfully</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Datascript"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminDatascript"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1015,15 +994,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasLastModifiedDate -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasLastModifiedDate">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Datascript"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminDatascript"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1373,15 +1345,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasScriptBody -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasScriptBody">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Datascript"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminDatascript"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1389,16 +1354,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasScriptPath -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasScriptPath">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Datascript"/>
-                    <rdf:Description rdf:about="&vital;DatascriptRun"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminDatascript"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1833,15 +1790,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasUsername">
         <rdfs:range rdf:resource="&xsd;string"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Admin"/>
-                    <rdf:Description rdf:about="&vital;LocalAuthenticationAccount"/>
-                    <rdf:Description rdf:about="&vital;SuperAdmin"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1948,15 +1896,8 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isCallable">
         <rdfs:comment xml:lang="en">a flag that indicates if a job also implements Script interface - may be callable</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="&vital;Job"/>
-                    <rdf:Description rdf:about="&vital;SuperAdminJob"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -3421,30 +3362,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;SparqlBinding">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_GraphContainerObject"/>
         <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
-    </owl:Class>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#SuperAdmin -->
-
-    <owl:Class rdf:about="&vital;SuperAdmin">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
-    </owl:Class>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#SuperAdminDatascript -->
-
-    <owl:Class rdf:about="&vital;SuperAdminDatascript">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
-    </owl:Class>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#SuperAdminJob -->
-
-    <owl:Class rdf:about="&vital;SuperAdminJob">
-        <rdfs:subClassOf rdf:resource="&vital;SuperAdminDatascript"/>
     </owl:Class>
     
 

@@ -34,6 +34,16 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultPackage -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasDefaultPackage">
+        <rdfs:comment xml:lang="en">owl:Ontology annotation (string) providing default groovy/java package name, used in domain classes generation, value must not start with &quot;ai.vital.&quot;</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDontIndexFlag -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasDontIndexFlag">

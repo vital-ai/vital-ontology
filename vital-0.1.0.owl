@@ -213,6 +213,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasGraphURIs -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasGraphURIs">
+        <vital-core:hasMultipleValues rdf:datatype="&xsd;boolean">true</vital-core:hasMultipleValues>
+        <rdfs:domain rdf:resource="&vital;GraphMatch"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasImageURL -->
 
     <owl:ObjectProperty rdf:about="&vital;hasImageURL">
@@ -1789,6 +1798,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasUsername -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasUsername">
+        <rdfs:domain rdf:resource="&vital;User"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -3028,6 +3038,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;GovernmentOrganization">
         <rdfs:subClassOf rdf:resource="&vital;Organization"/>
         <rdfs:comment>(“NYC Department of Education”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#GraphMatch -->
+
+    <owl:Class rdf:about="&vital;GraphMatch">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">a container for a graph query result (URIs list)</rdfs:comment>
     </owl:Class>
     
 

@@ -1363,8 +1363,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasScriptPath -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasScriptPath">
-        <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Datascript"/>
+                    <rdf:Description rdf:about="&vital;DatascriptRun"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 

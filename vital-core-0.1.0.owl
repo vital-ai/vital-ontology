@@ -229,6 +229,25 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasExternalTypes -->
+
+    <owl:ObjectProperty rdf:about="&vital-core;hasExternalTypes">
+        <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
+        <rdfs:comment xml:lang="en">multi value property for storing external rdf:type properties</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestination -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasHyperEdgeDestination">

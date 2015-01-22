@@ -248,6 +248,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasGraphURIs -->
+
+    <owl:ObjectProperty rdf:about="&vital-core;hasGraphURIs">
+        <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
+        <rdfs:domain rdf:resource="&vital-core;GraphMatch"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestination -->
 
     <owl:ObjectProperty rdf:about="&vital-core;hasHyperEdgeDestination">
@@ -319,6 +328,16 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasAggregationType -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasAggregationType">
+        <rdfs:comment xml:lang="en">one of: &apos;average&apos;, &apos;count&apos;, &apos;min&apos;, &apos;max&apos;, &apos;sum&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
     
 
 
@@ -477,6 +496,46 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasRdfContext -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasRdfContext">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfObject -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasRdfObject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfPredicate -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasRdfPredicate">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfSubject -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasRdfSubject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasRestrictionValue -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasRestrictionValue">
@@ -551,6 +610,15 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasValue">
+        <rdfs:domain rdf:resource="&vital-core;AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasVersionIRI -->
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasVersionIRI">
@@ -601,6 +669,15 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#isPositiveResponse -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;isPositiveResponse">
+        <rdfs:domain rdf:resource="&vital-core;SparqlAskResponse"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -609,6 +686,23 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#AggregationResult -->
+
+    <owl:Class rdf:about="&vital-core;AggregationResult">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#GraphMatch -->
+
+    <owl:Class rdf:about="&vital-core;GraphMatch">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">a container for a graph query result (URIs list)</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -644,6 +738,15 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#RDFStatement -->
+
+    <owl:Class rdf:about="&vital-core;RDFStatement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">rdf statement with optional context, may be a result of sparql CONSTRUCT query etc</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#RestrictionAnnotationValue -->
 
     <owl:Class rdf:about="&vital-core;RestrictionAnnotationValue">
@@ -664,6 +767,24 @@ if true, don&apos;t put into vital client cache. stored proc that returns object
 
     <owl:Class rdf:about="&vital-core;ResultSet">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Container"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlAskResponse -->
+
+    <owl:Class rdf:about="&vital-core;SparqlAskResponse">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">result of sparql ASK query ( yes/no )</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlBinding -->
+
+    <owl:Class rdf:about="&vital-core;SparqlBinding">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
     </owl:Class>
     
 

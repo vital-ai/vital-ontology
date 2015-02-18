@@ -34,6 +34,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasContainsListFlag -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasContainsListFlag">
+        <rdfs:comment xml:lang="en">special annotation for a string property that may store a csv encoded list of values. This annotation changes the getter and setter to List&lt;&gt;.
+The value of the annotation may only be set to an xsd or vital supported property</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDefaultPackage -->
 
     <owl:AnnotationProperty rdf:about="&vital-core;hasDefaultPackage">
@@ -345,6 +354,17 @@
 
     <owl:DatatypeProperty rdf:about="&vital-core;hasEventPolarity">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasGraphURIsList -->
+
+    <owl:DatatypeProperty rdf:about="&vital-core;hasGraphURIsList">
+        <rdfs:comment xml:lang="en">a property for storing a list of graph URIs</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital-core;GraphMatch"/>
+        <hasContainsListFlag rdf:resource="&xsd;anyURI"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     

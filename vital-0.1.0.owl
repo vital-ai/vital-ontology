@@ -1443,6 +1443,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasSpanType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSpanType">
+        <vital-core:hasMultipleValues rdf:datatype="&xsd;boolean">true</vital-core:hasMultipleValues>
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasStartDate -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasStartDate">

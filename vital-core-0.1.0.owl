@@ -326,7 +326,52 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:ObjectProperty rdf:about="&vital-core;hasReferringURI">
         <rdfs:domain rdf:resource="&vital-core;VITAL_URIReference"/>
     </owl:ObjectProperty>
+
+
+    <!-- http://vital.ai/ontology/vital-core#types -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#types">
+        <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
+        <rdfs:comment xml:lang="en">special property that is not serialized into RDF, represents a list of rdf:type properties assigned to a graph object</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
     
+
+
+    <!-- http://vital.ai/ontology/vital-core#vitaltype -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
+        <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
 
 
     <!-- 

@@ -485,6 +485,24 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasAuthor -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAuthor">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EntityInstance"/>
+                    <rdf:Description rdf:about="&vital;EquivalenceRelationInstance"/>
+                    <rdf:Description rdf:about="&vital;EventInstance"/>
+                    <rdf:Description rdf:about="&vital;RelationInstance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasBody -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasBody">
@@ -728,6 +746,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasEquivalenceType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEquivalenceType">
+        <rdfs:domain rdf:resource="&vital;EquivalenceRelationInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasErrorMessage -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasErrorMessage">
@@ -741,6 +768,24 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasErrorType">
         <rdfs:domain rdf:resource="&vital;ErrorFact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEventRole -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEventRole">
+        <rdfs:domain rdf:resource="&vital;Edge_hasEventElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEventType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEventType">
+        <rdfs:domain rdf:resource="&vital;EventInstance"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1252,6 +1297,24 @@ it should point to class URI, not a particular instance</rdfs:comment>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRelationRole -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRelationRole">
+        <rdfs:domain rdf:resource="&vital;Edge_hasRelationElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRelationType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRelationType">
+        <rdfs:domain rdf:resource="&vital;RelationInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -2655,8 +2718,59 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Edge_hasEntityInstance">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Entity"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEquivalenceElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEquivalenceElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EquivalenceRelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEquivalenceRelationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEquivalenceRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EquivalenceRelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventTrigger -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventTrigger">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EventInstance"/>
     </owl:Class>
     
 
@@ -2757,6 +2871,26 @@ it should point to class URI, not a particular instance</rdfs:comment>
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
         <vital-core:hasEdgeDestDomain rdf:resource="&vital;Predictor"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasRelationElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasRelationElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;RelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasRelationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;RelationInstance"/>
     </owl:Class>
     
 
@@ -2914,11 +3048,27 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#EquivalenceRelationInstance -->
+
+    <owl:Class rdf:about="&vital;EquivalenceRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#ErrorFact -->
 
     <owl:Class rdf:about="&vital;ErrorFact">
         <rdfs:subClassOf rdf:resource="&vital;VITAL_Fact"/>
         <rdfs:comment xml:lang="en">a fact that is a result of an error in inference processing step (sent in prolog response etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EventInstance -->
+
+    <owl:Class rdf:about="&vital;EventInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 
@@ -3244,6 +3394,14 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:Class rdf:about="&vital;Product">
         <rdfs:subClassOf rdf:resource="&vital;PhysicalThing"/>
         <rdfs:comment>(“Apple IPad”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#RelationInstance -->
+
+    <owl:Class rdf:about="&vital;RelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

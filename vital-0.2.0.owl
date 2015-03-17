@@ -1,0 +1,3830 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY vital "http://vital.ai/ontology/vital#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY vital-core "http://vital.ai/ontology/vital-core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://vital.ai/ontology/vital#"
+     xml:base="http://vital.ai/ontology/vital"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vital="http://vital.ai/ontology/vital#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:vital-core="http://vital.ai/ontology/vital-core#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/vital">
+        <owl:versionInfo>0.2.0</owl:versionInfo>
+        <owl:imports rdf:resource="http://vital.ai/ontology/vital-core"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationPredictClass -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictClass"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationPredictDirectEdge -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictDirectEdge"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationPredictModel -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictModel"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationPredictType -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationPredictType"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationTargetType -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetType"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationTargetValue -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasAnnotationTargetValue"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSerializedContextMap -->
+
+    <owl:AnnotationProperty rdf:about="&vital;hasSerializedContextMap">
+        <rdfs:domain rdf:resource="&vital-core;Payload"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSkipExpansionFlag -->
+
+    <owl:AnnotationProperty rdf:about="&vital-core;hasSkipExpansionFlag"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCategorizationTargetType -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasCategorizationTargetType">
+        <rdfs:comment xml:lang="en">the type of categorization, determines how the way the prediction results are mapped back to base object</rdfs:comment>
+        <rdfs:range rdf:resource="&vital;CategorizationTargetType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCreatorURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasCreatorURI">
+        <rdfs:range rdf:resource="&vital;User"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;AuthenticationToken"/>
+                    <rdf:Description rdf:about="&vital;ShortUrlMapping"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDislikeArticleURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasDislikeArticleURI">
+        <rdfs:domain rdf:resource="&vital;DislikeArticleEvent"/>
+        <rdfs:range rdf:resource="&vital;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDislikeEntityURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasDislikeEntityURI">
+        <rdfs:domain rdf:resource="&vital;DislikeEntityEvent"/>
+        <rdfs:range rdf:resource="&vital;NormalizedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDislikeTopicURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasDislikeTopicURI">
+        <rdfs:domain rdf:resource="&vital;DislikeTopicEvent"/>
+        <rdfs:range rdf:resource="&vital;NormalizedTopic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEntityType -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasEntityType">
+        <rdfs:comment xml:lang="en">this property determines the type of this normalized entity
+it should point to class URI, not a particular instance</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&vital;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEventUserURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasEventUserURI">
+        <rdfs:range rdf:resource="&vital;User"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;DislikeArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;DislikeEntityEvent"/>
+                    <rdf:Description rdf:about="&vital;DislikeTopicEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeEntityEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeTopicEvent"/>
+                    <rdf:Description rdf:about="&vital;SaveArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;ViewArticleEvent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExternalURL -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasExternalURL">
+        <rdfs:domain rdf:resource="&vital;ShortUrlMapping"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFacebookAuthenticationAccount -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasFacebookAuthenticationAccount">
+        <rdfs:range rdf:resource="&vital;FacebookAuthenticationAccount"/>
+        <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFullURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasFullURI">
+        <rdfs:domain rdf:resource="&vital;ShortUrlMapping"/>
+        <rdfs:range rdf:resource="&owl;Thing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasGmailAuthenticationAccount -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasGmailAuthenticationAccount">
+        <rdfs:range rdf:resource="&vital;GmailAuthenticationAccount"/>
+        <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasImageURL -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasImageURL">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLikeArticleURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLikeArticleURI">
+        <rdfs:range rdf:resource="&vital;Document"/>
+        <rdfs:domain rdf:resource="&vital;LikeArticleEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLikeEntityURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLikeEntityURI">
+        <rdfs:domain rdf:resource="&vital;LikeEntityEvent"/>
+        <rdfs:range rdf:resource="&vital;NormalizedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLikeTopicURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLikeTopicURI">
+        <rdfs:domain rdf:resource="&vital;LikeTopicEvent"/>
+        <rdfs:range rdf:resource="&vital;NormalizedTopic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLinkedInAuthenticationAccount -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLinkedInAuthenticationAccount">
+        <rdfs:range rdf:resource="&vital;LinkedInAuthenticationAccount"/>
+        <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLocalAuthenticationAccount -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLocalAuthenticationAccount">
+        <rdfs:range rdf:resource="&vital;LocalAuthenticationAccount"/>
+        <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasMachineLearningAlgorithm -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasMachineLearningAlgorithm">
+        <rdfs:range rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasMachineLearningModelType -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasMachineLearningModelType">
+        <rdfs:comment xml:lang="en">major type of ML model</rdfs:comment>
+        <rdfs:range rdf:resource="&vital;MachineLearningModelType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;CategorizationModel"/>
+                    <rdf:Description rdf:about="&vital;FlowPredictModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasModelURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasModelURI">
+        <rdfs:range rdf:resource="&vital;CategorizationModel"/>
+        <rdfs:domain rdf:resource="&vital;TargetNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasOpenCalaisURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasOpenCalaisURI">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Entity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
+                    <rdf:Description rdf:about="&vital;Topic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasProcessedArticleURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasProcessedArticleURI">
+        <rdfs:domain rdf:resource="&vital;ArticleProcessedEvent"/>
+        <rdfs:range rdf:resource="&vital;Document"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSavedArticleURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasSavedArticleURI">
+        <rdfs:range rdf:resource="&vital;Document"/>
+        <rdfs:domain rdf:resource="&vital;SaveArticleEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTwitterAuthenticationAccount -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasTwitterAuthenticationAccount">
+        <rdfs:range rdf:resource="&vital;TwitterAuthenticationAccount"/>
+        <rdfs:domain rdf:resource="&vital;User"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUserURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasUserURI">
+        <rdfs:range rdf:resource="&vital;User"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasViewedArticleURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasViewedArticleURI">
+        <rdfs:range rdf:resource="&vital;Document"/>
+        <rdfs:domain rdf:resource="&vital;ViewArticleEvent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasWikipediaURL -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasWikipediaURL">
+        <rdfs:comment xml:lang="en">A property added to test graph object&apos;s resource property conecpt</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Entity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasWordnetURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasWordnetURI">
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasActiveFlag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasActiveFlag">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAdminFlag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAdminFlag">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAnnotationName">
+        <rdfs:domain rdf:resource="&vital;Annotation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAnnotationValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAnnotationValue">
+        <rdfs:domain rdf:resource="&vital;Annotation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAppid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAppid">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Admin"/>
+                    <rdf:Description rdf:about="&vital;AppKey"/>
+                    <rdf:Description rdf:about="&vital;Application"/>
+                    <rdf:Description rdf:about="&vital;DataSegment"/>
+                    <rdf:Description rdf:about="&vital;Datascript"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasApplicationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasApplicationDate">
+        <rdfs:domain rdf:resource="&vital;PasswordResetRequest"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAuthor -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAuthor">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EntityInstance"/>
+                    <rdf:Description rdf:about="&vital;EquivalenceRelationInstance"/>
+                    <rdf:Description rdf:about="&vital;EventInstance"/>
+                    <rdf:Description rdf:about="&vital;RelationInstance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasBody -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasBody">
+        <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Content"/>
+                    <rdf:Description rdf:about="&vital;Document"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCancellationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCancellationDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCategoricalPredictorValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCategoricalPredictorValue">
+        <rdfs:domain rdf:resource="&vital;CategoricalPredictor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCategory -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCategory">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Entity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasClassifierName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasClassifierName">
+        <rdfs:domain rdf:resource="&vital;Topic"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCode -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCode">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasConfidence -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasConfidence">
+        <rdfs:domain rdf:resource="&vital;PosTag"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasContentType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasContentType">
+        <rdfs:domain rdf:resource="&vital;Content"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasContext -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasContext">
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasContinuousFeatureValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasContinuousFeatureValue">
+        <rdfs:domain rdf:resource="&vital;ContinuousPredictor"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCookieID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCookieID">
+        <rdfs:domain rdf:resource="&vital;ViewArticleEvent"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCountryCode -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCountryCode">
+        <rdfs:domain rdf:resource="&vital;CountryCode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCreationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCreationDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;AuthenticationToken"/>
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                    <rdf:Description rdf:about="&vital;ShortUrlMapping"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCustomerid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCustomerid">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDegree -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasDegree">
+        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDmozPath -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasDmozPath">
+        <rdfs:comment xml:lang="en">DMOZ path property that is used to map the document back to taxonomy category</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEmail -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEmail">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEndDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEndDate">
+        <rdfs:domain rdf:resource="&vital;AppKey"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEndPosition -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEndPosition">
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Sentence"/>
+                    <rdf:Description rdf:about="&vital;TagElement"/>
+                    <rdf:Description rdf:about="&vital;Token"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEndTokenIndex -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEndTokenIndex">
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;NounPhrase"/>
+                    <rdf:Description rdf:about="&vital;VerbPhrase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEquivalenceType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEquivalenceType">
+        <rdfs:domain rdf:resource="&vital;EquivalenceRelationInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasErrorMessage -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasErrorMessage">
+        <rdfs:domain rdf:resource="&vital;ErrorFact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasErrorType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasErrorType">
+        <rdfs:domain rdf:resource="&vital;ErrorFact"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEventRole -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEventRole">
+        <rdfs:domain rdf:resource="&vital;Edge_hasEventElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEventType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEventType">
+        <rdfs:domain rdf:resource="&vital;EventInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExactString -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasExactString">
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExtractSource -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasExtractSource">
+        <rdfs:domain rdf:resource="&vital;Entity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExtractedText -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasExtractedText">
+        <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExtractedTitle -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasExtractedTitle">
+        <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFacebookEmail -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasFacebookEmail">
+        <rdfs:comment rdf:datatype="&xsd;string">captured when merging an account with facebook</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFbid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasFbid">
+        <rdfs:domain rdf:resource="&vital;FacebookAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFirstname -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasFirstname">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasFullname -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasFullname">
+        <rdfs:domain rdf:resource="&vital;FacebookAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasGloss -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasGloss">
+        <rdfs:domain rdf:resource="&vital;SynsetNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasGmailEmail -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasGmailEmail">
+        <rdfs:comment rdf:datatype="&xsd;string">captured when merging an account with gmail</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasHeightPx -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasHeightPx">
+        <rdfs:comment xml:lang="en">height in pixels</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasId -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasId">
+        <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasImageDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasImageDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasInfo -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasInfo">
+        <rdfs:comment xml:lang="en">a custom info (stats) object that may be returned by a datascript</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;DatascriptInfo"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasInterval -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasInterval">
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasIntervalTimeUnit -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasIntervalTimeUnit">
+        <rdfs:comment xml:lang="en">one of: SECOND, MINUTE, HOUR, DAY</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasJobID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasJobID">
+        <rdfs:domain rdf:resource="&vital;DatascriptRun"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasJobStatus -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasJobStatus">
+        <rdfs:comment xml:lang="en">scheduled, running, complete</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;DatascriptRun"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasKey -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasKey">
+        <rdfs:domain rdf:resource="&vital;AppKey"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLastAccessTime -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastAccessTime">
+        <rdfs:domain rdf:resource="&vital;AuthenticationToken"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLastCompilationError -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastCompilationError">
+        <rdfs:comment xml:lang="en">if null then the script has been compiled successfully</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLastModifiedDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastModifiedDate">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLastOperationMessage -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastOperationMessage">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;TwitterAuthenticationAccount"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLastname -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastname">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLength -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLength">
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLengthInSentence -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLengthInSentence">
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLinkedInID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLinkedInID">
+        <rdfs:domain rdf:resource="&vital;LinkedInAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLocalEmail -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLocalEmail">
+        <rdfs:comment rdf:datatype="&xsd;string">should be a copy of username from local authentication account</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLockedFlag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLockedFlag">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLongForm -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLongForm">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Abbreviation"/>
+                    <rdf:Description rdf:about="&vital;AbbreviationInstance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLongFormEnd -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLongFormEnd">
+        <rdfs:domain rdf:resource="&vital;AbbreviationInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLongFormStart -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLongFormStart">
+        <rdfs:domain rdf:resource="&vital;AbbreviationInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasMiddlename -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasMiddlename">
+        <rdfs:domain rdf:resource="&vital;FacebookAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasModelPath -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasModelPath">
+        <rdfs:domain rdf:resource="&vital;FlowPredictModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasModelType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasModelType">
+        <rdfs:comment xml:lang="en">one of &apos;local&apos;, &apos;s3&apos;
+</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;FlowPredictModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasName">
+        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasNameVariants -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasNameVariants">
+        <rdfs:comment xml:lang="en">a comma-seprated list of variants</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasNormConfidence -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasNormConfidence">
+        <rdfs:range rdf:resource="&xsd;float"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Edge_hasNormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;Edge_hasNormalizedTopic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasOffset -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasOffset">
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasOffsetInSentence -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasOffsetInSentence">
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPassword -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPassword">
+        <rdfs:domain rdf:resource="&vital;LocalAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPosTagsConfidenceString -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPosTagsConfidenceString">
+        <rdfs:domain rdf:resource="&vital;Sentence"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPosTagsValuesString -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPosTagsValuesString">
+        <rdfs:domain rdf:resource="&vital;Sentence"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPredictorName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPredictorName">
+        <rdfs:domain rdf:resource="&vital;Predictor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPublicLink -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPublicLink">
+        <rdfs:comment rdf:datatype="&xsd;string">public link of a profile</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasPublicationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPublicationDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Document"/>
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRelationRole -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRelationRole">
+        <rdfs:domain rdf:resource="&vital;Edge_hasRelationElement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRelationType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRelationType">
+        <rdfs:domain rdf:resource="&vital;RelationInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRelevance -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRelevance">
+        <rdfs:domain rdf:resource="&vital;Entity"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRetiredFlag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRetiredFlag">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasScore -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScore">
+        <rdfs:domain rdf:resource="&vital;Topic"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasScreenName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScreenName">
+        <rdfs:domain rdf:resource="&vital;TwitterAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasScriptBody -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScriptBody">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasScriptPath -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasScriptPath">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Datascript"/>
+                    <rdf:Description rdf:about="&vital;DatascriptRun"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSentenceNumber -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSentenceNumber">
+        <rdfs:domain rdf:resource="&vital;Sentence"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSerializedGraph -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSerializedGraph">
+        <rdfs:comment xml:lang="en">compact-stirng serialized list of garph objects</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;CacheNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSerializedProcessingStatus -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSerializedProcessingStatus">
+        <vital-core:hasDontIndexFlag rdf:datatype="&xsd;boolean">true</vital-core:hasDontIndexFlag>
+        <rdfs:comment xml:lang="en">JSON serialized list of ProcessflowSteps, used by DataServer to annotate processed Document object</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;ArticleProcessedEvent"/>
+                    <rdf:Description rdf:about="&vital;Document"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSeries -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSeries">
+        <rdfs:domain rdf:resource="&vital;RememberMeCookie"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasShortForm -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasShortForm">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Abbreviation"/>
+                    <rdf:Description rdf:about="&vital;AbbreviationInstance"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasShortFormEnd -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasShortFormEnd">
+        <rdfs:domain rdf:resource="&vital;AbbreviationInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasShortFormStart -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasShortFormStart">
+        <rdfs:domain rdf:resource="&vital;AbbreviationInstance"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasShortID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasShortID">
+        <rdfs:domain rdf:resource="&vital;ShortUrlMapping"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasShortname -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasShortname">
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSourceDomain -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSourceDomain">
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSourceName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSourceName">
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSpanType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSpanType">
+        <vital-core:hasMultipleValues rdf:datatype="&xsd;boolean">true</vital-core:hasMultipleValues>
+        <rdfs:domain rdf:resource="&vital;EntityInstance"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasStartDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasStartDate">
+        <rdfs:domain rdf:resource="&vital;AppKey"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasStartPosition -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasStartPosition">
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Sentence"/>
+                    <rdf:Description rdf:about="&vital;TagElement"/>
+                    <rdf:Description rdf:about="&vital;Token"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasStartTokenIndex -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasStartTokenIndex">
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;NounPhrase"/>
+                    <rdf:Description rdf:about="&vital;VerbPhrase"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSymbol -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSymbol">
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTagValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTagValue">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;PosTag"/>
+                    <rdf:Description rdf:about="&vital;TagElement"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTargetScore -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTargetScore">
+        <rdfs:domain rdf:resource="&vital;TargetNode"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasText -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasText">
+        <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
+        <rdfs:domain rdf:resource="&vital;TextBlock"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTextBlockLength -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTextBlockLength">
+        <rdfs:domain rdf:resource="&vital;TextBlock"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTextBlockOffset -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTextBlockOffset">
+        <rdfs:domain rdf:resource="&vital;TextBlock"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTextLikePredictorValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTextLikePredictorValue">
+        <rdfs:domain rdf:resource="&vital;TextLikePredictor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTicker -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTicker">
+        <rdfs:domain rdf:resource="&vital;NormalizedEntity"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTitle -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTitle">
+        <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasToken -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasToken">
+        <rdfs:comment rdf:datatype="&xsd;string">Authentication token</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;AuthenticationToken"/>
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;TwitterAuthenticationAccount"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTokenExpirationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTokenExpirationDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;FacebookAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;TwitterAuthenticationAccount"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTokenSecret -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTokenSecret">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;GmailAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;LinkedInAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;TwitterAuthenticationAccount"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTokenText -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTokenText">
+        <rdfs:domain rdf:resource="&vital;Token"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTokensPositionsString -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTokensPositionsString">
+        <rdfs:domain rdf:resource="&vital;Sentence"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTokensTextString -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTokensTextString">
+        <rdfs:domain rdf:resource="&vital;Sentence"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTransformationVector -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTransformationVector">
+        <rdfs:domain rdf:resource="&vital;TextBlock"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTwitterEmail -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTwitterEmail">
+        <rdfs:comment rdf:datatype="&xsd;string">captured when merging an account with twitter</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;TwitterAuthenticationAccount"/>
+                    <rdf:Description rdf:about="&vital;User"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUSStateCode -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUSStateCode">
+        <rdfs:comment xml:lang="en">US state code (ANSI or USPS)</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;USState"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUid">
+        <rdfs:domain rdf:resource="&vital;TwitterAuthenticationAccount"/>
+        <rdfs:range rdf:resource="&xsd;long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUrl -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUrl">
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUrlRoot -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUrlRoot">
+        <rdfs:comment xml:lang="en">URL root property that is used to map the document back to taxonomy category</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Document"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUserid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUserid">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;DislikeArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;DislikeEntityEvent"/>
+                    <rdf:Description rdf:about="&vital;DislikeTopicEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeEntityEvent"/>
+                    <rdf:Description rdf:about="&vital;LikeTopicEvent"/>
+                    <rdf:Description rdf:about="&vital;SaveArticleEvent"/>
+                    <rdf:Description rdf:about="&vital;ViewArticleEvent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUsername -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUsername">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUsersSegment -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUsersSegment">
+        <rdfs:domain rdf:resource="&vital;Application"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVerificationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasVerificationDate">
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;ShortUrlMapping"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasWidthPx -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasWidthPx">
+        <rdfs:comment xml:lang="en">width in pixels</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                    <rdf:Description rdf:about="&vital;NormalizedEntity"/>
+                    <rdf:Description rdf:about="&vital;NormalizedTopic"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasWordLikePredictorValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasWordLikePredictorValue">
+        <rdfs:domain rdf:resource="&vital;WordLikePredictor"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasWordnetID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasWordnetID">
+        <rdfs:comment xml:lang="en">a wordnet identifier, concatenation of POS and sysnset ID offset</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;SynsetNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasXmlConfig -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasXmlConfig">
+        <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isAdminScript -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isAdminScript">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isApplied -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isApplied">
+        <rdfs:domain rdf:resource="&vital;PasswordResetRequest"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isCallable -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isCallable">
+        <rdfs:comment xml:lang="en">a flag that indicates if a job also implements Script interface - may be callable</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isCancelled -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isCancelled">
+        <rdfs:comment xml:lang="en">a flag indicating that a verification record has been cancelled by the user either directly or suppressed by a new request</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;EmailVerificationRecord"/>
+                    <rdf:Description rdf:about="&vital;PasswordResetRequest"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isClosingTag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isClosingTag">
+        <rdfs:domain rdf:resource="&vital;TagElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isEmailVerified -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isEmailVerified">
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isEnabled -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isEnabled">
+        <rdfs:domain rdf:resource="&vital;VITAL_Fact"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isIndexed -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isIndexed">
+        <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isLoaded -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isLoaded">
+        <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isOpeningTag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isOpeningTag">
+        <rdfs:domain rdf:resource="&vital;TagElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isPreferred -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isPreferred">
+        <rdfs:domain rdf:resource="&vital;CountryCode"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isRegularScript -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isRegularScript">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isStandaloneTag -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isStandaloneTag">
+        <rdfs:domain rdf:resource="&vital;TagElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isStatusOn -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isStatusOn">
+        <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isTestUser -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isTestUser">
+        <rdfs:comment xml:lang="en">a flag indicating if an account is a test user, it only matters if an account can share social auth accounts or not</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isVerified -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isVerified">
+        <rdfs:domain rdf:resource="&vital;EmailVerificationRecord"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Abbreviation -->
+
+    <owl:Class rdf:about="&vital;Abbreviation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AbbreviationInstance -->
+
+    <owl:Class rdf:about="&vital;AbbreviationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AdjectiveSynsetNode -->
+
+    <owl:Class rdf:about="&vital;AdjectiveSynsetNode">
+        <rdfs:subClassOf rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Admin -->
+
+    <owl:Class rdf:about="&vital;Admin">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AdverbSynsetNode -->
+
+    <owl:Class rdf:about="&vital;AdverbSynsetNode">
+        <rdfs:subClassOf rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Annotation -->
+
+    <owl:Class rdf:about="&vital;Annotation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AppKey -->
+
+    <owl:Class rdf:about="&vital;AppKey">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Application -->
+
+    <owl:Class rdf:about="&vital;Application">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">class representing a vital application</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ArticleProcessedEvent -->
+
+    <owl:Class rdf:about="&vital;ArticleProcessedEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;AuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Abstract authentication account</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#AuthenticationToken -->
+
+    <owl:Class rdf:about="&vital;AuthenticationToken">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">Common base for various authentication tokens</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#BusinessOrganization -->
+
+    <owl:Class rdf:about="&vital;BusinessOrganization">
+        <rdfs:subClassOf rdf:resource="&vital;Organization"/>
+        <rdfs:comment>(“Apple, Inc.”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CacheNode -->
+
+    <owl:Class rdf:about="&vital;CacheNode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">CacheNode contains the serialized graph of entities and topics, edges, and also  normalized topics and entities and edges to them</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CategoricalPredictor -->
+
+    <owl:Class rdf:about="&vital;CategoricalPredictor">
+        <rdfs:subClassOf rdf:resource="&vital;Predictor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CategorizationModel -->
+
+    <owl:Class rdf:about="&vital;CategorizationModel">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">categorization model, instances should be stored in ontology</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CategorizationTargetType -->
+
+    <owl:Class rdf:about="&vital;CategorizationTargetType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Category -->
+
+    <owl:Class rdf:about="&vital;Category">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Content -->
+
+    <owl:Class rdf:about="&vital;Content">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ContinuousPredictor -->
+
+    <owl:Class rdf:about="&vital;ContinuousPredictor">
+        <rdfs:subClassOf rdf:resource="&vital;Predictor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Country -->
+
+    <owl:Class rdf:about="&vital;Country">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CountryCode -->
+
+    <owl:Class rdf:about="&vital;CountryCode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">a class representing a country abbreviation (code), a country may have more than 1 abbreviation (en)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Currency -->
+
+    <owl:Class rdf:about="&vital;Currency">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“$10.00”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DataSegment -->
+
+    <owl:Class rdf:about="&vital;DataSegment">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Datascript -->
+
+    <owl:Class rdf:about="&vital;Datascript">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents an installed datascript</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DatascriptInfo -->
+
+    <owl:Class rdf:about="&vital;DatascriptInfo">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DatascriptRun -->
+
+    <owl:Class rdf:about="&vital;DatascriptRun">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents a datascript called in the background (async)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DislikeArticleEvent -->
+
+    <owl:Class rdf:about="&vital;DislikeArticleEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DislikeEntityEvent -->
+
+    <owl:Class rdf:about="&vital;DislikeEntityEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#DislikeTopicEvent -->
+
+    <owl:Class rdf:about="&vital;DislikeTopicEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Document -->
+
+    <owl:Class rdf:about="&vital;Document">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Duration -->
+
+    <owl:Class rdf:about="&vital;Duration">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“2 hours”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetAlsoSee -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetAlsoSee">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetAntonym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetAntonym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetAttribute -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetAttribute">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetCause -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetCause">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;VerbSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetDerivationallyRelatedForm -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetDerivationallyRelatedForm">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetDerivedFromAdjective -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetDerivedFromAdjective">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetDomainOfSynset_Region -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetDomainOfSynset_Region">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetDomainOfSynset_Topic -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetDomainOfSynset_Topic">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetDomainOfSynset_Usage -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetDomainOfSynset_Usage">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetEntailment -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetEntailment">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetHypernym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetHypernym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetHyponym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetHyponym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetInstanceHypernym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetInstanceHypernym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetInstanceHyponym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetInstanceHyponym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetMemberHolonym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetMemberHolonym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetMemberMeronym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetMemberMeronym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetMemberOfThisDomain_Region -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetMemberOfThisDomain_Region">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetMemberOfThisDomain_Topic -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetMemberOfThisDomain_Topic">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetMemberOfThisDomain_Usage -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetMemberOfThisDomain_Usage">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetPartHolonym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetPartHolonym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetPartMeronym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetPartMeronym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetParticiple -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetParticiple">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetPertainym_PertainsToNouns -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetPertainym_PertainsToNouns">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetSimilarTo -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetSimilarTo">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;AdjectiveSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;AdjectiveSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetSubstanceHolonym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetSubstanceHolonym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetSubstanceMeronym -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetSubstanceMeronym">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;NounSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_WordnetVerbGroup -->
+
+    <owl:Class rdf:about="&vital;Edge_WordnetVerbGroup">
+        <rdfs:subClassOf rdf:resource="&vital;Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;VerbSynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasAbbreviation -->
+
+    <owl:Class rdf:about="&vital;Edge_hasAbbreviation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Abbreviation"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasAbbreviationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasAbbreviationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Abbreviation"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;AbbreviationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasAnnotation -->
+
+    <owl:Class rdf:about="&vital;Edge_hasAnnotation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Annotation"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasCacheNode -->
+
+    <owl:Class rdf:about="&vital;Edge_hasCacheNode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasSkipExpansionFlag rdf:datatype="&xsd;boolean">true</vital-core:hasSkipExpansionFlag>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;CacheNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasCategory -->
+
+    <owl:Class rdf:about="&vital;Edge_hasCategory">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Category"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasChildCategory -->
+
+    <owl:Class rdf:about="&vital;Edge_hasChildCategory">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <rdfs:comment xml:lang="en">taxonomy type edge but a subclass of peer edge type due to same source and destination domain</rdfs:comment>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Category"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasContent -->
+
+    <owl:Class rdf:about="&vital;Edge_hasContent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasSkipExpansionFlag rdf:datatype="&xsd;boolean">true</vital-core:hasSkipExpansionFlag>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Content"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasCountryCode -->
+
+    <owl:Class rdf:about="&vital;Edge_hasCountryCode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <rdfs:comment xml:lang="en">an edge connecting a Country to a CountryCode</rdfs:comment>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Country"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;CountryCode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasDislikeArticle -->
+
+    <owl:Class rdf:about="&vital;Edge_hasDislikeArticle">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasDislikeEntity -->
+
+    <owl:Class rdf:about="&vital;Edge_hasDislikeEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedEntity"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasDislikeTopic -->
+
+    <owl:Class rdf:about="&vital;Edge_hasDislikeTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedTopic"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEntity -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEntityInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEntityInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Entity"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEquivalenceElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEquivalenceElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EquivalenceRelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEquivalenceRelationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEquivalenceRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EquivalenceRelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasEventTrigger -->
+
+    <owl:Class rdf:about="&vital;Edge_hasEventTrigger">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;EventInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasImageReference -->
+
+    <owl:Class rdf:about="&vital;Edge_hasImageReference">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;ImageReference"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasLikeArticle -->
+
+    <owl:Class rdf:about="&vital;Edge_hasLikeArticle">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasLikeEntity -->
+
+    <owl:Class rdf:about="&vital;Edge_hasLikeEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedEntity"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasLikeTopic -->
+
+    <owl:Class rdf:about="&vital;Edge_hasLikeTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedTopic"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasNormalizedEntity -->
+
+    <owl:Class rdf:about="&vital;Edge_hasNormalizedEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Entity"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasNormalizedTopic -->
+
+    <owl:Class rdf:about="&vital;Edge_hasNormalizedTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedTopic"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Topic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasNounPhrase -->
+
+    <owl:Class rdf:about="&vital;Edge_hasNounPhrase">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NounPhrase"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasPhraseNormalizedEntity -->
+
+    <owl:Class rdf:about="&vital;Edge_hasPhraseNormalizedEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;NormalizedEntity"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Phrase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasPosTag -->
+
+    <owl:Class rdf:about="&vital;Edge_hasPosTag">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;PosTag"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasPredictor -->
+
+    <owl:Class rdf:about="&vital;Edge_hasPredictor">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Predictor"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasRelationElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasRelationElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;RelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasRelationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;RelationInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasSaveArticle -->
+
+    <owl:Class rdf:about="&vital;Edge_hasSaveArticle">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasSentence -->
+
+    <owl:Class rdf:about="&vital;Edge_hasSentence">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Sentence"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;TextBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasSentenceAbbreviationInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasSentenceAbbreviationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;AbbreviationInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasSentenceEntityInstance -->
+
+    <owl:Class rdf:about="&vital;Edge_hasSentenceEntityInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;EntityInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasTagElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasTagElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;TagElement"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;TextBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasTargetNode -->
+
+    <owl:Class rdf:about="&vital;Edge_hasTargetNode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;TargetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasTextBlock -->
+
+    <owl:Class rdf:about="&vital;Edge_hasTextBlock">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;TextBlock"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasToken -->
+
+    <owl:Class rdf:about="&vital;Edge_hasToken">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Token"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasTopic -->
+
+    <owl:Class rdf:about="&vital;Edge_hasTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Topic"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasVerbPhrase -->
+
+    <owl:Class rdf:about="&vital;Edge_hasVerbPhrase">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Sentence"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;VerbPhrase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasViewArticle -->
+
+    <owl:Class rdf:about="&vital;Edge_hasViewArticle">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;User"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasWordnetPointer -->
+
+    <owl:Class rdf:about="&vital;Edge_hasWordnetPointer">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <rdfs:comment xml:lang="en">an edge representing a wordnet pointer (connection)</rdfs:comment>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;SynsetNode"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EmailAddress -->
+
+    <owl:Class rdf:about="&vital;EmailAddress">
+        <rdfs:subClassOf rdf:resource="&vital;Identifier_Locator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EmailVerificationRecord -->
+
+    <owl:Class rdf:about="&vital;EmailVerificationRecord">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Entity -->
+
+    <owl:Class rdf:about="&vital;Entity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EntityInstance -->
+
+    <owl:Class rdf:about="&vital;EntityInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EquivalenceRelationInstance -->
+
+    <owl:Class rdf:about="&vital;EquivalenceRelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ErrorFact -->
+
+    <owl:Class rdf:about="&vital;ErrorFact">
+        <rdfs:subClassOf rdf:resource="&vital;VITAL_Fact"/>
+        <rdfs:comment xml:lang="en">a fact that is a result of an error in inference processing step (sent in prolog response etc.)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#EventInstance -->
+
+    <owl:Class rdf:about="&vital;EventInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ExternalToken -->
+
+    <owl:Class rdf:about="&vital;ExternalToken">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationToken"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#FacebookAuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;FacebookAuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#FlowPredictModel -->
+
+    <owl:Class rdf:about="&vital;FlowPredictModel">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represets a mahout model with all configuration properties</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#GeographicRegion -->
+
+    <owl:Class rdf:about="&vital;GeographicRegion">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“NY State, USA”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#GmailAuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;GmailAuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#GovernmentOrganization -->
+
+    <owl:Class rdf:about="&vital;GovernmentOrganization">
+        <rdfs:subClassOf rdf:resource="&vital;Organization"/>
+        <rdfs:comment>(“NYC Department of Education”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#HyperEdge_hasAnnotation -->
+
+    <owl:Class rdf:about="&vital;HyperEdge_hasAnnotation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Annotation"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperNode"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#HyperEdge_hasFact -->
+
+    <owl:Class rdf:about="&vital;HyperEdge_hasFact">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Fact"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperNode"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#HyperEdge_hasReason -->
+
+    <owl:Class rdf:about="&vital;HyperEdge_hasReason">
+        <rdfs:subClassOf rdf:resource="&vital;HyperEdge_hasAnnotation"/>
+        <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Reason"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperNode"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Identifier_Locator -->
+
+    <owl:Class rdf:about="&vital;Identifier_Locator">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ImageReference -->
+
+    <owl:Class rdf:about="&vital;ImageReference">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Job -->
+
+    <owl:Class rdf:about="&vital;Job">
+        <rdfs:subClassOf rdf:resource="&vital;Datascript"/>
+        <rdfs:comment xml:lang="en">represents an installed recurring Datascript (Job)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LikeArticleEvent -->
+
+    <owl:Class rdf:about="&vital;LikeArticleEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LikeEntityEvent -->
+
+    <owl:Class rdf:about="&vital;LikeEntityEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LikeTopicEvent -->
+
+    <owl:Class rdf:about="&vital;LikeTopicEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LinkedInAuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;LinkedInAuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LocalAuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;LocalAuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Location -->
+
+    <owl:Class rdf:about="&vital;Location">
+        <rdfs:subClassOf rdf:resource="&vital;GeographicRegion"/>
+        <rdfs:comment>(latitude-longitude coordinates)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MachineLearningAlgorithm -->
+
+    <owl:Class rdf:about="&vital;MachineLearningAlgorithm">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents machine learning algorithm, depends on MachineLearningModelType </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MachineLearningModelType -->
+
+    <owl:Class rdf:about="&vital;MachineLearningModelType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">main model type - one per ML library used</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Media -->
+
+    <owl:Class rdf:about="&vital;Media">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“Citizen Kane (Film)”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#NormalizedEntity -->
+
+    <owl:Class rdf:about="&vital;NormalizedEntity">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#NormalizedTopic -->
+
+    <owl:Class rdf:about="&vital;NormalizedTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#NounPhrase -->
+
+    <owl:Class rdf:about="&vital;NounPhrase">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#NounSynsetNode -->
+
+    <owl:Class rdf:about="&vital;NounSynsetNode">
+        <rdfs:subClassOf rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Number -->
+
+    <owl:Class rdf:about="&vital;Number">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“12”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Organization -->
+
+    <owl:Class rdf:about="&vital;Organization">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PasswordResetRequest -->
+
+    <owl:Class rdf:about="&vital;PasswordResetRequest">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Person -->
+
+    <owl:Class rdf:about="&vital;Person">
+        <rdfs:subClassOf rdf:resource="&vital;PhysicalThing"/>
+        <rdfs:comment>(“Bill Gates”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PhoneNumber -->
+
+    <owl:Class rdf:about="&vital;PhoneNumber">
+        <rdfs:subClassOf rdf:resource="&vital;Identifier_Locator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Phrase -->
+
+    <owl:Class rdf:about="&vital;Phrase">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PhysicalThing -->
+
+    <owl:Class rdf:about="&vital;PhysicalThing">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>(“apple pie”) </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PosTag -->
+
+    <owl:Class rdf:about="&vital;PosTag">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Predictor -->
+
+    <owl:Class rdf:about="&vital;Predictor">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">represents a classification / clustering predictor</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PredictorType -->
+
+    <owl:Class rdf:about="&vital;PredictorType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">groups possible predictor properties types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PrivateOrganization -->
+
+    <owl:Class rdf:about="&vital;PrivateOrganization">
+        <rdfs:subClassOf rdf:resource="&vital;Organization"/>
+        <rdfs:comment xml:lang="en">(“The Catholic Church”, “Princeton University”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Product -->
+
+    <owl:Class rdf:about="&vital;Product">
+        <rdfs:subClassOf rdf:resource="&vital;PhysicalThing"/>
+        <rdfs:comment>(“Apple IPad”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#RelationInstance -->
+
+    <owl:Class rdf:about="&vital;RelationInstance">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#RememberMeCookie -->
+
+    <owl:Class rdf:about="&vital;RememberMeCookie">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationToken"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#SaveArticleEvent -->
+
+    <owl:Class rdf:about="&vital;SaveArticleEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Sentence -->
+
+    <owl:Class rdf:about="&vital;Sentence">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ShortUrlMapping -->
+
+    <owl:Class rdf:about="&vital;ShortUrlMapping">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment rdf:datatype="&xsd;string">a class the represents short-id -&gt; full URI mapping</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#SynsetNode -->
+
+    <owl:Class rdf:about="&vital;SynsetNode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TagElement -->
+
+    <owl:Class rdf:about="&vital;TagElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TargetNode -->
+
+    <owl:Class rdf:about="&vital;TargetNode">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TargetType -->
+
+    <owl:Class rdf:about="&vital;TargetType">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">groups possible target properties types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TextBlock -->
+
+    <owl:Class rdf:about="&vital;TextBlock">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TextLikePredictor -->
+
+    <owl:Class rdf:about="&vital;TextLikePredictor">
+        <rdfs:subClassOf rdf:resource="&vital;Predictor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Thing -->
+
+    <owl:Class rdf:about="&vital;Thing">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Time -->
+
+    <owl:Class rdf:about="&vital;Time">
+        <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+        <rdfs:comment>( “January 1st, 1970 at 12:00 AM EST” )</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Token -->
+
+    <owl:Class rdf:about="&vital;Token">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Topic -->
+
+    <owl:Class rdf:about="&vital;Topic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TwitterAuthenticationAccount -->
+
+    <owl:Class rdf:about="&vital;TwitterAuthenticationAccount">
+        <rdfs:subClassOf rdf:resource="&vital;AuthenticationAccount"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#URI -->
+
+    <owl:Class rdf:about="&vital;URI">
+        <rdfs:subClassOf rdf:resource="&vital;Identifier_Locator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#URL -->
+
+    <owl:Class rdf:about="&vital;URL">
+        <rdfs:subClassOf rdf:resource="&vital;Identifier_Locator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#USState -->
+
+    <owl:Class rdf:about="&vital;USState">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#User -->
+
+    <owl:Class rdf:about="&vital;User">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VITAL_Annotation -->
+
+    <owl:Class rdf:about="&vital;VITAL_Annotation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VITAL_Fact -->
+
+    <owl:Class rdf:about="&vital;VITAL_Fact">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VITAL_Reason -->
+
+    <owl:Class rdf:about="&vital;VITAL_Reason">
+        <rdfs:subClassOf rdf:resource="&vital;VITAL_Annotation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VerbPhrase -->
+
+    <owl:Class rdf:about="&vital;VerbPhrase">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VerbSynsetNode -->
+
+    <owl:Class rdf:about="&vital;VerbSynsetNode">
+        <rdfs:subClassOf rdf:resource="&vital;SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ViewArticleEvent -->
+
+    <owl:Class rdf:about="&vital;ViewArticleEvent">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Event"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalTopic -->
+
+    <owl:Class rdf:about="&vital;VitalTopic">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#WordLikePredictor -->
+
+    <owl:Class rdf:about="&vital;WordLikePredictor">
+        <rdfs:subClassOf rdf:resource="&vital;Predictor"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CategorizationTargetType_Custom -->
+
+    <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_Custom">
+        <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
+        <hasName rdf:datatype="&xsd;string">Custom</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CategorizationTargetType_DirectEdge -->
+
+    <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_DirectEdge">
+        <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
+        <hasName rdf:datatype="&xsd;string">DirectEdge</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_Bayes -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_Bayes">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">Bayes</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_CBayes -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_CBayes">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">CBayes</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_RandomForest -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_RandomForest">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">RandomForest</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_SGD -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SGD">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SGD</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_SVM -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLAlgorithm_SVM-Regression -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM-Regression">
+        <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
+        <hasName rdf:datatype="&xsd;string">SVM-Regression</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLModelType_Mahout -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_Mahout">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">Mahout</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLModelType_PMML -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_PMML">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">PMML</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLModelType_R -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_R">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">R</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLModelType_SVM -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_SVM">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#MLModelType_Weka -->
+
+    <owl:NamedIndividual rdf:about="&vital;MLModelType_Weka">
+        <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
+        <hasName rdf:datatype="&xsd;string">Weka</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PredictorType_categorical -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_categorical">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PredictorType_continuous -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_continuous">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PredictorType_textlike -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_textlike">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">textlike</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#PredictorType_wordlike -->
+
+    <owl:NamedIndividual rdf:about="&vital;PredictorType_wordlike">
+        <rdf:type rdf:resource="&vital;PredictorType"/>
+        <hasName rdf:datatype="&xsd;string">wordlike</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TargetType_categorical -->
+
+    <owl:NamedIndividual rdf:about="&vital;TargetType_categorical">
+        <rdf:type rdf:resource="&vital;TargetType"/>
+        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#TargetType_continuous -->
+
+    <owl:NamedIndividual rdf:about="&vital;TargetType_continuous">
+        <rdf:type rdf:resource="&vital;TargetType"/>
+        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&vital-core;hasEventPolarity">
+        <rdfs:comment xml:lang="en">suggested values:  &quot;added&quot; or &quot;retracted&quot;</rdfs:comment>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

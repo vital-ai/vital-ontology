@@ -1,0 +1,597 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://vital.ai/ontology/vital-core#"
+     xml:base="http://vital.ai/ontology/vital-core"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/vital-core">
+        <owl:versionInfo>0.2.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasContainsListFlag -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasContainsListFlag">
+        <rdfs:comment xml:lang="en">special annotation for a string property that may store a csv encoded list of values. This annotation changes the getter and setter to List&lt;&gt;.
+The value of the annotation may only be set to an xsd or vital supported property</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultPackage -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackage">
+        <rdfs:comment xml:lang="en">owl:Ontology annotation (string) providing default groovy/java package name, used in domain classes generation, value must not start with &quot;ai.vital.&quot;</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDontIndexFlag -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasDontIndexFlag"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeDestDomain -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdgeDestDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeSrcDomain -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdgeSrcDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestDomain -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasHyperEdgeDestDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeSrcDomain -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasHyperEdgeSrcDomain"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasMaxValueExclusive -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMaxValueExclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasMaxValueInclusive -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMaxValueInclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasMinValueExclusive -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMinValueExclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasMinValueInclusive -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMinValueInclusive"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasMultipleValues -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMultipleValues">
+        <rdfs:comment xml:lang="en">determines if a property has 1 or 0 values or is may contain more than value, values order is not determined</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTransientPropertyFlag -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasTransientPropertyFlag"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isAnalyzedNoEquals -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#isAnalyzedNoEquals"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isDefaultLabel -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#isDefaultLabel">
+        <rdfs:comment xml:lang="en">a ui annotation to indicate if a property should be used as a label</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isInternalStore -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#isInternalStore">
+        <rdfs:comment xml:lang="en">property annotation to indicate that a property may only be used by storage layer and shouldn&apos;t be set when persisting the object</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#geoLocation -->
+
+    <rdfs:Datatype rdf:about="http://vital.ai/ontology/vital-core#geoLocation">
+        <rdfs:comment xml:lang="en">comma-separated &lt;longitude,latitude&gt; pair, signed, any precision</rdfs:comment>
+    </rdfs:Datatype>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeDestination -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdgeDestination">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEdgeSource -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdgeSource">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeDestination -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasHyperEdgeDestination">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasHyperEdgeSource -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasHyperEdgeSource">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasOntologyIRI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasOntologyIRI">
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#types -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#types">
+        <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
+        <rdfs:comment xml:lang="en">special property that is not serialized into RDF, represents a list of rdf:type properties assigned to a graph object</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#vitaltype -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
+        <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasAggregationType -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasAggregationType">
+        <rdfs:comment xml:lang="en">one of: &apos;average&apos;, &apos;count&apos;, &apos;min&apos;, &apos;max&apos;, &apos;sum&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasListIndex -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasListIndex">
+        <rdfs:range rdf:resource="&xsd;int"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfContext -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRdfContext">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfObject -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRdfObject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfPredicate -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRdfPredicate">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasRdfSubject -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRdfSubject">
+        <rdfs:comment xml:lang="en">sparql (N-TRIPLE) encoded resource string</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#RDFStatement"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSerializedJSON -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSerializedJSON">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PayloadNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSerializedRDF -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSerializedRDF">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PayloadNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTimestamp -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTimestamp">
+        <rdfs:range rdf:resource="&xsd;long"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#AggregationResult"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasVersionIRI -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasVersionIRI">
+        <isInternalStore rdf:datatype="&xsd;boolean">true</isInternalStore>
+        <hasDontIndexFlag rdf:datatype="&xsd;boolean">true</hasDontIndexFlag>
+        <rdfs:comment xml:lang="en">a inverse transient property, it is to be used in persistence layer and not propagate outside of it</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isActive -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isActive">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isPositiveResponse -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isPositiveResponse">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlAskResponse"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#AggregationResult -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#AggregationResult">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#GraphMatch -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#GraphMatch">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">contains an arbitrary bindings row - list of [var-&gt;URIProperty] pairs</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#RDFStatement -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#RDFStatement">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:comment xml:lang="en">rdf statement with optional context, may be a result of sparql CONSTRUCT query etc</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#RestrictionAnnotationValue -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#RestrictionAnnotationValue">
+        <rdfs:comment xml:lang="en">individuals of this class are used to provide data property restrictions (it&apos;s independent from owl2 restrictions)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlAskResponse -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlAskResponse">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:comment xml:lang="en">result of sparql ASK query ( yes/no )</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlBinding -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlBinding">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Edge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Event -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_Event">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject">
+        <rdfs:comment xml:lang="en">a graph object which properties are arbitrary and not validated (not defined in ontology)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_HyperEdge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_HyperNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Node -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_PayloadNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_PayloadNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:comment xml:lang="en">a node that may contain list of graph objects serialized into RDF of JSON</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_PeerEdge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_PeerEdge">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+

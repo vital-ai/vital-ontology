@@ -672,15 +672,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital#hasCustomerid -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasCustomerid">
-        <rdfs:domain rdf:resource="&vital;Datascript"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://vital.ai/ontology/vital#hasDegree -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasDegree">
@@ -1242,6 +1233,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <owl:DatatypeProperty rdf:about="&vital;hasOffsetInSentence">
         <rdfs:domain rdf:resource="&vital;EntityInstance"/>
         <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasOrganizationid -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasOrganizationid">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 

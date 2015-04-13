@@ -1184,15 +1184,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital#hasName -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasName">
-        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://vital.ai/ontology/vital#hasNameVariants -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasNameVariants">
@@ -3644,7 +3635,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_Custom">
         <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
-        <hasName rdf:datatype="&xsd;string">Custom</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">Custom</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3653,7 +3644,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;CategorizationTargetType_DirectEdge">
         <rdf:type rdf:resource="&vital;CategorizationTargetType"/>
-        <hasName rdf:datatype="&xsd;string">DirectEdge</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">DirectEdge</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3662,7 +3653,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_Bayes">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">Bayes</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">Bayes</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3671,7 +3662,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_CBayes">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">CBayes</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">CBayes</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3680,7 +3671,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_RandomForest">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">RandomForest</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">RandomForest</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3689,7 +3680,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SGD">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">SGD</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">SGD</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3698,7 +3689,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">SVM</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3707,7 +3698,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLAlgorithm_SVM-Regression">
         <rdf:type rdf:resource="&vital;MachineLearningAlgorithm"/>
-        <hasName rdf:datatype="&xsd;string">SVM-Regression</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">SVM-Regression</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3716,7 +3707,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLModelType_Mahout">
         <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
-        <hasName rdf:datatype="&xsd;string">Mahout</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">Mahout</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3725,7 +3716,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLModelType_PMML">
         <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
-        <hasName rdf:datatype="&xsd;string">PMML</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">PMML</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3734,7 +3725,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLModelType_R">
         <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
-        <hasName rdf:datatype="&xsd;string">R</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">R</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3743,7 +3734,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLModelType_SVM">
         <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
-        <hasName rdf:datatype="&xsd;string">SVM</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">SVM</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3752,7 +3743,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;MLModelType_Weka">
         <rdf:type rdf:resource="&vital;MachineLearningModelType"/>
-        <hasName rdf:datatype="&xsd;string">Weka</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">Weka</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3761,7 +3752,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;PredictorType_categorical">
         <rdf:type rdf:resource="&vital;PredictorType"/>
-        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">categorical</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3770,7 +3761,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;PredictorType_continuous">
         <rdf:type rdf:resource="&vital;PredictorType"/>
-        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">continuous</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3779,7 +3770,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;PredictorType_textlike">
         <rdf:type rdf:resource="&vital;PredictorType"/>
-        <hasName rdf:datatype="&xsd;string">textlike</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">textlike</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3788,7 +3779,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;PredictorType_wordlike">
         <rdf:type rdf:resource="&vital;PredictorType"/>
-        <hasName rdf:datatype="&xsd;string">wordlike</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">wordlike</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3797,7 +3788,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;TargetType_categorical">
         <rdf:type rdf:resource="&vital;TargetType"/>
-        <hasName rdf:datatype="&xsd;string">categorical</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">categorical</vital-core:hasName>
     </owl:NamedIndividual>
     
 
@@ -3806,7 +3797,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:NamedIndividual rdf:about="&vital;TargetType_continuous">
         <rdf:type rdf:resource="&vital;TargetType"/>
-        <hasName rdf:datatype="&xsd;string">continuous</hasName>
+        <vital-core:hasName rdf:datatype="&xsd;string">continuous</vital-core:hasName>
     </owl:NamedIndividual>
     
 

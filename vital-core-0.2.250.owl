@@ -171,6 +171,25 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#URIProp -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#URIProp">
+        <rdfs:comment xml:lang="en">graph object&apos;s URI (identifier)</rdfs:comment>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasEdgeDestination -->
 
     <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdgeDestination">
@@ -335,6 +354,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasName">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasQueryString -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasQueryString">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Query"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -558,6 +586,14 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#VITAL_GraphQuery -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphQuery">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Query"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#VITAL_HyperEdge -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
@@ -576,6 +612,14 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#VITAL_PathQuery -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_PathQuery">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Query"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#VITAL_PayloadNode -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_PayloadNode">
@@ -589,6 +633,23 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_PeerEdge">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_Query -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_Query">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:comment xml:lang="en">a container for query strings</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VITAL_SelectQuery -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_SelectQuery">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Query"/>
     </owl:Class>
     
 

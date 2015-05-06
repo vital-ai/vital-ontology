@@ -1578,11 +1578,29 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasTargetDoubleValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTargetDoubleValue">
+        <rdfs:domain rdf:resource="&vital;TargetNode"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasTargetScore -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasTargetScore">
         <rdfs:domain rdf:resource="&vital;TargetNode"/>
         <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasTargetStringValue -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasTargetStringValue">
+        <rdfs:domain rdf:resource="&vital;TargetNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 

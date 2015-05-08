@@ -20,7 +20,7 @@
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:vital-core="http://vital.ai/ontology/vital-core#">
     <owl:Ontology rdf:about="http://vital.ai/ontology/vital">
-        <owl:versionInfo>0.2.250</owl:versionInfo>
+        <owl:versionInfo>0.2.251</owl:versionInfo>
         <owl:imports rdf:resource="http://vital.ai/ontology/vital-core"/>
     </owl:Ontology>
     

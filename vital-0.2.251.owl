@@ -3137,19 +3137,6 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital#HyperEdge_hasAnnotation -->
-
-    <owl:Class rdf:about="&vital;HyperEdge_hasAnnotation">
-        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperEdge"/>
-        <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Annotation"/>
-        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
-        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperEdge"/>
-        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperNode"/>
-        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital#HyperEdge_hasFact -->
 
     <owl:Class rdf:about="&vital;HyperEdge_hasFact">
@@ -3162,10 +3149,23 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#HyperEdge_hasHyperAnnotation -->
+
+    <owl:Class rdf:about="&vital;HyperEdge_hasHyperAnnotation">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Annotation"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperEdge"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperNode"/>
+        <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#HyperEdge_hasReason -->
 
     <owl:Class rdf:about="&vital;HyperEdge_hasReason">
-        <rdfs:subClassOf rdf:resource="&vital;HyperEdge_hasAnnotation"/>
+        <rdfs:subClassOf rdf:resource="&vital;HyperEdge_hasHyperAnnotation"/>
         <vital-core:hasHyperEdgeDestDomain rdf:resource="&vital;VITAL_Reason"/>
         <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_Edge"/>
         <vital-core:hasHyperEdgeSrcDomain rdf:resource="&vital-core;VITAL_HyperEdge"/>

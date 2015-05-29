@@ -2636,6 +2636,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#Edge_hasCategory -->
+
+    <owl:Class rdf:about="&vital;Edge_hasCategory">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Document"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital-core;VITAL_Category"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#Edge_hasContent -->
 
     <owl:Class rdf:about="&vital;Edge_hasContent">

@@ -1237,6 +1237,15 @@ it should point to class URI, not a particular instance</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasPageRank -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPageRank">
+        <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasPassword -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasPassword">

@@ -612,8 +612,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasContentType -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasContentType">
-        <rdfs:domain rdf:resource="&vital;Content"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Content"/>
+                    <rdf:Description rdf:about="&vital;Image"/>
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -920,6 +928,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Image"/>
                     <rdf:Description rdf:about="&vital;ImageReference"/>
                     <rdf:Description rdf:about="&vital;NormalizedEntity"/>
                     <rdf:Description rdf:about="&vital;NormalizedTopic"/>
@@ -934,6 +943,19 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasId">
         <rdfs:domain rdf:resource="&vital;DataSegment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasImageData -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasImageData">
+        <rdfs:comment xml:lang="en">base64 encoded image data, it should be either full data URL:
+data:&lt;contenttype,base64,&lt;base64content&gt;
+or just just content
+&lt;base64content&gt;</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Image"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -1307,6 +1329,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="&vital;Document"/>
+                    <rdf:Description rdf:about="&vital;Image"/>
                     <rdf:Description rdf:about="&vital;ImageReference"/>
                 </owl:unionOf>
             </owl:Class>
@@ -1664,8 +1687,16 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasTitle">
         <vital-core:isAnalyzedNoEquals rdf:datatype="&xsd;boolean">true</vital-core:isAnalyzedNoEquals>
-        <rdfs:domain rdf:resource="&vital;Document"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Document"/>
+                    <rdf:Description rdf:about="&vital;Image"/>
+                    <rdf:Description rdf:about="&vital;ImageReference"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1880,6 +1911,7 @@ it should point to class URI, not a particular instance</rdfs:comment>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Image"/>
                     <rdf:Description rdf:about="&vital;ImageReference"/>
                     <rdf:Description rdf:about="&vital;NormalizedEntity"/>
                     <rdf:Description rdf:about="&vital;NormalizedTopic"/>
@@ -3169,6 +3201,14 @@ it should point to class URI, not a particular instance</rdfs:comment>
 
     <owl:Class rdf:about="&vital;Identifier_Locator">
         <rdfs:subClassOf rdf:resource="&vital;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Image -->
+
+    <owl:Class rdf:about="&vital;Image">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

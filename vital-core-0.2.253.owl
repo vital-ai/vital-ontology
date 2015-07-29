@@ -350,6 +350,40 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasAppID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasAppID">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalApp"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultPackageValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackageValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDomainOWL -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDomainOWL">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasListIndex -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasListIndex">
@@ -371,6 +405,23 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasName">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasOrganizationID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasOrganizationID">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalApp"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -498,6 +549,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasVersionInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasVersionInfo">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#isActive -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isActive">
@@ -544,12 +604,50 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#DomainModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#DomainModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#Edge_hasChildCategory -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasChildCategory">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
         <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Category"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Category"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Edge_hasChildDomainModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasChildDomainModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Edge_hasOrganization -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasOrganization">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalApp"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Edge_hasParentDomainModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasParentDomainModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
     </owl:Class>
     
 
@@ -709,6 +807,22 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalApp -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalApp">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalOrganization -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalOrganization">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
     </owl:Class>
 </rdf:RDF>
 

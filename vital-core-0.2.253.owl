@@ -32,6 +32,16 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasBackwardCompatibilityVersion -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasBackwardCompatibilityVersion">
+        <rdfs:comment xml:lang="en">determines the minimal domain version this domain is backward compatible with, value pattern: \d+\.\d+\.\d+</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasContainsListFlag -->
 
     <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasContainsListFlag">
@@ -109,6 +119,16 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasMultipleValues">
         <rdfs:comment xml:lang="en">determines if a property has 1 or 0 values or is may contain more than value, values order is not determined</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPreferredImportVersion -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasPreferredImportVersion">
+        <rdfs:comment xml:lang="en">provides preferred import version of a dependency, the value must match regex pattern: (?&lt;domain&gt;.+)\\-(?&lt;major&gt;\\d+)\\.(?&lt;minor&gt;\\d+)\\.(?&lt;patch&gt;\\d+)\\.owl</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
     </owl:AnnotationProperty>
     
 
@@ -303,17 +323,6 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
         <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -325,6 +334,17 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -362,6 +382,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasBackwardCompVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasBackwardCompVersion">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -422,6 +451,16 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPreferredImportVersions -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPreferredImportVersions">
+        <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 

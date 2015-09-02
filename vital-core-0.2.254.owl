@@ -11,10 +11,10 @@
 
 <rdf:RDF xmlns="http://vital.ai/ontology/vital-core#"
      xml:base="http://vital.ai/ontology/vital-core"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://vital.ai/ontology/vital-core">
         <owl:versionInfo>0.2.254</owl:versionInfo>
     </owl:Ontology>
@@ -323,17 +323,6 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
         <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -345,6 +334,17 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
     </owl:ObjectProperty>
     
 
@@ -624,6 +624,16 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#isPreferred -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isPreferred">
+        <rdfs:comment xml:lang="en">a property that decides which version goes into block file header, by default the latest version is loaded but it also possible to use an older version header if it is preffered. A use case would be bulk exporting a segment with older data version</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -655,8 +665,8 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasChildCategory">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Category"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Category"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Category"/>
     </owl:Class>
     
 
@@ -665,8 +675,8 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasChildDomainModel">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
-        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
         <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
     </owl:Class>
     
 
@@ -685,8 +695,8 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasParentDomainModel">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
     </owl:Class>
     
 

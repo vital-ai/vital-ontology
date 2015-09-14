@@ -16,7 +16,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://vital.ai/ontology/vital-core">
-        <owl:versionInfo>0.2.254</owl:versionInfo>
+        <owl:versionInfo>0.2.255</owl:versionInfo>
     </owl:Ontology>
     
 

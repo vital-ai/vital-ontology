@@ -395,6 +395,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasCatalogName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasCatalogName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDefaultPackageValue -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackageValue">
@@ -408,6 +417,24 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDomainOWL">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEndpointType -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasEndpointType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasEndpointURL -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasEndpointURL">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -451,6 +478,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPassword -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPassword">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -514,6 +550,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasRepositoryName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRepositoryName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasRestrictionValue -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRestrictionValue">
@@ -554,6 +599,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasUsername -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasUsername">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -653,6 +707,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#DatabaseConnection -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+        <rdfs:comment xml:lang="en">Represents a named database connection object</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#DomainModel -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#DomainModel">
@@ -741,6 +804,14 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlBinding">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
         <rdfs:comment xml:lang="en">represents a sparql select query result biniding, each variable is a n-triple serialized value, null if variable does not exist in binding or &apos;UNBOUND&apos; string if there&apos;s no variable value</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlDatabaseConnection -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
     </owl:Class>
     
 

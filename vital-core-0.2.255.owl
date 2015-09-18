@@ -404,6 +404,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasDatabase -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDatabase">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SqlDatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDefaultPackageValue -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackageValue">
@@ -599,6 +608,24 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasUpdatedRowsCount -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasUpdatedRowsCount">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SqlUpdateResponse"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasUpdatedTriplesCount -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasUpdatedTriplesCount">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlUpdateResponse"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
 
@@ -812,6 +839,39 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SparqlUpdateResponse -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SparqlUpdateResponse">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SqlDatabaseConnection -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SqlDatabaseConnection">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SqlResultRow -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SqlResultRow">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+        <rdfs:comment xml:lang="en">represents a single row of an external sql query</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#SqlUpdateResponse -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#SqlUpdateResponse">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
     </owl:Class>
     
 

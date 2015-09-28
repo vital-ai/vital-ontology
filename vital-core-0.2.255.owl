@@ -323,17 +323,6 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
         <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -345,6 +334,17 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -379,6 +379,7 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalApp"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalSegment"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -484,6 +485,7 @@ The value of the annotation may only be set to an xsd or vital supported propert
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalApp"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalSegment"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -505,6 +507,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPreferredImportVersions">
         <hasMultipleValues rdf:datatype="&xsd;boolean">true</hasMultipleValues>
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasProvisioningData -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasProvisioningData">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSegment"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -572,6 +583,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRestrictionValue">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#RestrictionAnnotationValue"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSegmentID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSegmentID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSegment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -710,6 +730,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isPreferred">
         <rdfs:comment xml:lang="en">a property that decides which version goes into block file header, by default the latest version is loaded but it also possible to use an older version header if it is preffered. A use case would be bulk exporting a segment with older data version</rdfs:comment>
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isReadOnly -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isReadOnly">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSegment"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1002,6 +1031,14 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#VitalOrganization -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalOrganization">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalSegment -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalSegment">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
     </owl:Class>
 </rdf:RDF>

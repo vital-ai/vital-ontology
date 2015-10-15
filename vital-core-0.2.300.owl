@@ -1033,8 +1033,11 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasAuthKey">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalApp"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceAdminKey"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceKey"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceRootKey"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceSuperAdminKey"/>
     </owl:Class>
     
 
@@ -1063,8 +1066,8 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasOrganization">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
-        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalApp"/>
         <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceRootKey"/>
     </owl:Class>
     
 

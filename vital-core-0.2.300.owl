@@ -161,6 +161,14 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#isEntityId -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#isEntityId">
+        <rdfs:comment xml:lang="en">indicates if a property is the entity id (primary key), useful for dataset joins</rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#isInternalStore -->
 
     <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#isInternalStore">
@@ -323,17 +331,6 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital-core#vitaltype">
         <rdfs:comment xml:lang="en">the property indicating which rdf:type property is the vitalsigns concrete type</rdfs:comment>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
-                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
         <rdfs:range>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
@@ -345,6 +342,17 @@ The value of the annotation may only be set to an xsd or vital supported propert
                 </owl:unionOf>
             </owl:Class>
         </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -784,6 +792,19 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasTransactionID -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTransactionID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalTransaction"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTransactionState -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTransactionState">
+        <rdfs:comment xml:lang="en">OPEN (successfully created and active),
+COMMITTED (after successful commit operation),
+ROLLED_BACK, (after rolled back by the user or server)
+FAILED (failed on the server side)</rdfs:comment>
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalTransaction"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>

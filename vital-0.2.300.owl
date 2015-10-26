@@ -231,6 +231,14 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#Account -->
+
+    <owl:Class rdf:about="&vital;Account">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#BusinessOrganization -->
 
     <owl:Class rdf:about="&vital;BusinessOrganization">
@@ -280,6 +288,26 @@
     <owl:Class rdf:about="&vital;Duration">
         <rdfs:subClassOf rdf:resource="&vital;Thing"/>
         <rdfs:comment>(“2 hours”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasUserLogin -->
+
+    <owl:Class rdf:about="&vital;Edge_hasUserLogin">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Account"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;UserLogin"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasUserSession -->
+
+    <owl:Class rdf:about="&vital;Edge_hasUserSession">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;Account"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;UserSession"/>
     </owl:Class>
     
 
@@ -482,6 +510,23 @@
 
     <owl:Class rdf:about="&vital;URL">
         <rdfs:subClassOf rdf:resource="&vital;Identifier_Locator"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#UserLogin -->
+
+    <owl:Class rdf:about="&vital;UserLogin">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">generic user login class</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#UserSession -->
+
+    <owl:Class rdf:about="&vital;UserSession">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

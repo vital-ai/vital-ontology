@@ -29,6 +29,26 @@
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLoginURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLoginURI">
+        <rdfs:range rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
     // Data properties
     //
     ///////////////////////////////////////////////////////////////////////////////////////
@@ -69,6 +89,15 @@
     <owl:DatatypeProperty rdf:about="&vital;hasErrorType">
         <rdfs:domain rdf:resource="&vital;ErrorFact"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasExpirationDate -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasExpirationDate">
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
@@ -158,6 +187,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasPassword -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasPassword">
+        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasScriptBody -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasScriptBody">
@@ -183,6 +221,42 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasSessionID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSessionID">
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSessionType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSessionType">
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasUsername -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasUsername">
+        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVerificationCode -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasVerificationCode">
+        <rdfs:domain rdf:resource="&vital;UserLogin"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#isAdminScript -->
 
     <owl:DatatypeProperty rdf:about="&vital;isAdminScript">
@@ -197,6 +271,15 @@
     <owl:DatatypeProperty rdf:about="&vital;isCallable">
         <rdfs:comment xml:lang="en">a flag that indicates if a job also implements Script interface - may be callable</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isEmailVerified -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isEmailVerified">
+        <rdfs:domain rdf:resource="&vital;UserLogin"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -239,11 +322,27 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#AdminLogin -->
+
+    <owl:Class rdf:about="&vital;AdminLogin">
+        <rdfs:subClassOf rdf:resource="&vital;CredentialsLogin"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#BusinessOrganization -->
 
     <owl:Class rdf:about="&vital;BusinessOrganization">
         <rdfs:subClassOf rdf:resource="&vital;Organization"/>
         <rdfs:comment>(“Apple, Inc.”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#CredentialsLogin -->
+
+    <owl:Class rdf:about="&vital;CredentialsLogin">
+        <rdfs:subClassOf rdf:resource="&vital;UserLogin"/>
     </owl:Class>
     
 
@@ -411,6 +510,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#Login -->
+
+    <owl:Class rdf:about="&vital;Login">
+        <rdfs:subClassOf rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:comment xml:lang="en">credentials login, username password</rdfs:comment>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#Media -->
 
     <owl:Class rdf:about="&vital;Media">
@@ -477,6 +585,14 @@
     <owl:Class rdf:about="&vital;Product">
         <rdfs:subClassOf rdf:resource="&vital;PhysicalThing"/>
         <rdfs:comment>(“Apple IPad”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#SuperAdminLogin -->
+
+    <owl:Class rdf:about="&vital;SuperAdminLogin">
+        <rdfs:subClassOf rdf:resource="&vital;CredentialsLogin"/>
     </owl:Class>
     
 

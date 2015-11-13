@@ -589,14 +589,6 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital#SuperAdminLogin -->
-
-    <owl:Class rdf:about="&vital;SuperAdminLogin">
-        <rdfs:subClassOf rdf:resource="&vital;CredentialsLogin"/>
-    </owl:Class>
-    
-
-
     <!-- http://vital.ai/ontology/vital#Thing -->
 
     <owl:Class rdf:about="&vital;Thing">

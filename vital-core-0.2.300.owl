@@ -764,7 +764,7 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasSessionType -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSessionType">
-        <rdfs:comment xml:lang="en">one of: &apos;service&apos;, &apos;adminservice&apos;, &apos;superadminservice&apos;</rdfs:comment>
+        <rdfs:comment xml:lang="en">one of: &apos;service&apos;, &apos;adminservice&apos; etc</rdfs:comment>
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSession"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
@@ -1054,11 +1054,9 @@ FAILED (failed on the server side)</rdfs:comment>
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasAuthKey">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalApp"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalOrganization"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceAdminKey"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceKey"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceRootKey"/>
-        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceSuperAdminKey"/>
     </owl:Class>
     
 
@@ -1403,14 +1401,6 @@ FAILED (failed on the server side)</rdfs:comment>
     <!-- http://vital.ai/ontology/vital-core#VitalServiceRootKey -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceRootKey">
-        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
-    </owl:Class>
-    
-
-
-    <!-- http://vital.ai/ontology/vital-core#VitalServiceSuperAdminKey -->
-
-    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSuperAdminKey">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
     </owl:Class>
     

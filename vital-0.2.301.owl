@@ -46,6 +46,25 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasProvenance -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasProvenance">
+        <rdfs:comment xml:lang="en">source dataset URI</rdfs:comment>
+        <rdfs:range rdf:resource="&vital;Dataset"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -62,6 +81,34 @@
     <owl:DatatypeProperty rdf:about="&vital;hasAppid">
         <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasCertainty -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCertainty">
+        <rdfs:comment xml:lang="en">certainty of a graph object - for example it has low value if it comes from a noisy dataset</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;double"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasDateRetrieved -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasDateRetrieved">
+        <rdfs:domain rdf:resource="&vital;Dataset"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
@@ -239,6 +286,24 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasSourceName -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSourceName">
+        <rdfs:domain rdf:resource="&vital;Dataset"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasSourceUrl -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasSourceUrl">
+        <rdfs:domain rdf:resource="&vital;Dataset"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasUsername -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasUsername">
@@ -378,6 +443,14 @@
     <owl:Class rdf:about="&vital;DatascriptRun">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:comment xml:lang="en">represents a datascript called in the background (async)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Dataset -->
+
+    <owl:Class rdf:about="&vital;Dataset">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

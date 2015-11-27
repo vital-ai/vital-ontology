@@ -439,6 +439,16 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasDomainOWLHash -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDomainOWLHash">
+        <rdfs:comment xml:lang="en">domain owl content MD5 hash</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasEdge_read -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasEdge_read">

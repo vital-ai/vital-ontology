@@ -199,7 +199,7 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#truth -->
 
     <rdfs:Datatype rdf:about="http://vital.ai/ontology/vital-core#truth">
-        <rdfs:comment xml:lang="en">truth datatype, value must be an enum, one of YES, NO, UNKNOWN</rdfs:comment>
+        <rdfs:comment xml:lang="en">truth datatype, value must be an enum, one of YES, NO, UNKNOWN, MU</rdfs:comment>
     </rdfs:Datatype>
     
 

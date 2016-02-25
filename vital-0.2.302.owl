@@ -359,6 +359,16 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#isLocked -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isLocked">
+        <rdfs:comment xml:lang="en">locked login cannot be modified</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;UserLogin"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#isRegularScript -->
 
     <owl:DatatypeProperty rdf:about="&vital;isRegularScript">

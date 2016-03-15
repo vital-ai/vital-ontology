@@ -179,6 +179,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasLastExecutionTime -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLastExecutionTime">
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasLastModifiedDate -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasLastModifiedDate">
@@ -191,6 +200,15 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasNextExecutionTime -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasNextExecutionTime">
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>
     
 
@@ -325,6 +343,15 @@
     <owl:DatatypeProperty rdf:about="&vital;isLocked">
         <rdfs:comment xml:lang="en">locked login cannot be modified</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;UserLogin"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isPaused -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isPaused">
+        <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     

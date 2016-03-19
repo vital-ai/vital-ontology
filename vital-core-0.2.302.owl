@@ -395,6 +395,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasAccessKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasAccessKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasAggregationType -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasAggregationType">
@@ -412,8 +421,10 @@ The value of the annotation may only be set to an xsd or vital supported propert
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalApp"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -433,7 +444,34 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasCatalogName -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasCatalogName">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasConnectionError -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasConnectionError">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasConnectionState -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasConnectionState">
+        <rdfs:comment xml:lang="en">connected
+disconnected</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -457,10 +495,36 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasDbType -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDbType">
+        <rdfs:comment xml:lang="en">MySQL,
+MySQLMemSQL,
+MySQLAurora,
+AmazonRedshift,
+PostgreSQL,
+ApacheSparkSQL,
+EMRSparkSQL,
+HiveSQL</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDefaultPackageValue -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackageValue">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultSegmentName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultSegmentName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -515,7 +579,27 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasEndpointURL -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasEndpointURL">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServicePrimeConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSparkConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasGraphQueries -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasGraphQueries">
+        <rdfs:comment xml:lang="en">&apos;index&apos; or &apos;database&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -565,6 +649,7 @@ The value of the annotation may only be set to an xsd or vital supported propert
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalSession"/>
                 </owl:unionOf>
             </owl:Class>
@@ -623,8 +708,10 @@ The value of the annotation may only be set to an xsd or vital supported propert
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DomainModel"/>
                     <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalOrganization"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
@@ -635,8 +722,34 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasPassword -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPassword">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPoolInitialSize -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPoolInitialSize">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPoolMaxTotal -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasPoolMaxTotal">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
     </owl:DatatypeProperty>
     
 
@@ -757,8 +870,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
     <!-- http://vital.ai/ontology/vital-core#hasRepositoryName -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRepositoryName">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#SparqlDatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -771,10 +891,83 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasRootPath -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRootPath">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceLuceneDiskConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3AccessKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3AccessKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3BasePath -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3BasePath">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3Bucket -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3Bucket">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3EndpointURL -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3EndpointURL">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3SecretKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3SecretKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSecretKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSecretKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasSegmentID -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSegmentID">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSegment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSelectQueries -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSelectQueries">
+        <rdfs:comment xml:lang="en">&apos;index&apos; or &apos;database&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -793,6 +986,15 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSerializedRDF">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PayloadNode"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasServerURL -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasServerURL">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -830,6 +1032,40 @@ The value of the annotation may only be set to an xsd or vital supported propert
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasSourceUrl">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#Dataset"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTablesPrefix -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTablesPrefix">
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTargetAppID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTargetAppID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasTargetOrganizationID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasTargetOrganizationID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -893,11 +1129,29 @@ FAILED (failed on the server side)</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasUriGenerationStrategy -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasUriGenerationStrategy">
+        <rdfs:comment xml:lang="en">&apos;local&apos; or &apos;remote&apos;</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasUsername -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasUsername">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
         <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -1013,6 +1267,15 @@ FAILED (failed on the server side)</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#isLocalEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isLocalEndpoint">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#isNode_indexed -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isNode_indexed">
@@ -1050,10 +1313,35 @@ FAILED (failed on the server side)</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#isPrimary -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isPrimary">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#isReadOnly -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isReadOnly">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalSegment"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#DatabaseConnection"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VitalSegment"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#isS3LocalEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#isS3LocalEndpoint">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     
@@ -1149,6 +1437,26 @@ FAILED (failed on the server side)</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
         <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
         <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#DomainModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Edge_hasDbConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasDbConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#Edge_hasIndexConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#Edge_hasIndexConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+        <hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig"/>
     </owl:Class>
     
 
@@ -1462,6 +1770,38 @@ FAILED (failed on the server side)</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceAllegrographConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceIndexedDBConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#VitalServiceKey -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceKey">
@@ -1470,10 +1810,66 @@ FAILED (failed on the server side)</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceLuceneDiskConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceLuceneDiskConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceLuceneMemoryConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceLuceneMemoryConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceMockConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceMockConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServicePrimeConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServicePrimeConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#VitalServiceRootKey -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceRootKey">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalAuthKey"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceSaaSConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSaaSConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceSparkConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSparkConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#VitalServiceSqlConfig -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-core#VitalServiceSqlConfig">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceConfig"/>
     </owl:Class>
     
 

@@ -85,6 +85,16 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasCronExpression -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasCronExpression">
+        <rdfs:comment xml:lang="en">with cron expression a job may be scheduled according to it, rather than simple recurrent job</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Job"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasDegree -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasDegree">

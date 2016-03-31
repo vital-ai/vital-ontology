@@ -20,7 +20,7 @@
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:vital="http://vital.ai/ontology/vital#">
     <owl:Ontology rdf:about="http://vital.ai/ontology/vital">
-        <owl:versionInfo>0.2.302</owl:versionInfo>
+        <owl:versionInfo>0.2.303</owl:versionInfo>
         <owl:imports rdf:resource="http://vital.ai/ontology/vital-core"/>
     </owl:Ontology>
     
@@ -54,15 +54,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasAppid -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasAppid">
-        <rdfs:domain rdf:resource="&vital;Datascript"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
     
 
 
@@ -223,29 +214,11 @@
     
 
 
-    <!-- http://vital.ai/ontology/vital#hasOrganizationid -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasOrganizationid">
-        <rdfs:domain rdf:resource="&vital;Datascript"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
     <!-- http://vital.ai/ontology/vital#hasPageRank -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasPageRank">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;double"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasPassword -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasPassword">
-        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -271,33 +244,6 @@
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasSessionID -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasSessionID">
-        <rdfs:domain rdf:resource="&vital;UserSession"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasSessionType -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasSessionType">
-        <rdfs:domain rdf:resource="&vital;UserSession"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasUsername -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasUsername">
-        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -373,6 +319,54 @@
         <rdfs:domain rdf:resource="&vital;Datascript"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasAppID -->
+
+    <rdf:Description rdf:about="&vital-core;hasAppID">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasOrganizationID -->
+
+    <rdf:Description rdf:about="&vital-core;hasOrganizationID">
+        <rdfs:domain rdf:resource="&vital;Datascript"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasPassword -->
+
+    <rdf:Description rdf:about="&vital-core;hasPassword">
+        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSessionID -->
+
+    <rdf:Description rdf:about="&vital-core;hasSessionID">
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasSessionType -->
+
+    <rdf:Description rdf:about="&vital-core;hasSessionType">
+        <rdfs:domain rdf:resource="&vital;UserSession"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasUsername -->
+
+    <rdf:Description rdf:about="&vital-core;hasUsername">
+        <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+    </rdf:Description>
     
 
 

@@ -46,6 +46,15 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasRuleSet -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasRuleSet">
+        <rdfs:domain rdf:resource="&vital;VitalRule"/>
+        <rdfs:range rdf:resource="&vital;VitalRuleSet"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -219,6 +228,15 @@
     <owl:DatatypeProperty rdf:about="&vital;hasPageRank">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasRuleBody -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasRuleBody">
+        <rdfs:domain rdf:resource="&vital;VitalRule"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -726,6 +744,22 @@
 
     <owl:Class rdf:about="&vital;VITAL_Reason">
         <rdfs:subClassOf rdf:resource="&vital;VITAL_Annotation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalRule -->
+
+    <owl:Class rdf:about="&vital;VitalRule">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalRuleSet -->
+
+    <owl:Class rdf:about="&vital;VitalRuleSet">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
     </owl:Class>
     
 

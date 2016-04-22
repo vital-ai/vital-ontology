@@ -890,6 +890,16 @@ HiveSQL</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasRegion -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRegion">
+        <rdfs:comment xml:lang="en">aws region, like us-east-1 (aws client default), us-west-1</rdfs:comment>
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasRepositoryName -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasRepositoryName">
@@ -953,6 +963,16 @@ HiveSQL</rdfs:comment>
     <!-- http://vital.ai/ontology/vital-core#hasS3EndpointURL -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3EndpointURL">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasS3Region -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasS3Region">
+        <rdfs:comment xml:lang="en">aws region, like us-east-1 (aws client default), us-west-1</rdfs:comment>
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VitalServiceDynamoDBConfig"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>

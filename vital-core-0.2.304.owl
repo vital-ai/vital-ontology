@@ -51,6 +51,26 @@ The value of the annotation may only be set to an xsd or vital supported propert
     
 
 
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultArtifactId -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultArtifactId">
+        <rdfs:comment xml:lang="en">maven default artifactId</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-core#hasDefaultGroupId -->
+
+    <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultGroupId">
+        <rdfs:comment xml:lang="en">maven default groupId</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain rdf:resource="&owl;Ontology"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital-core#hasDefaultPackage -->
 
     <owl:AnnotationProperty rdf:about="http://vital.ai/ontology/vital-core#hasDefaultPackage">

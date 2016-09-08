@@ -39,11 +39,29 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasAccountURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasAccountURI">
+        <rdfs:range rdf:resource="&vital;Account"/>
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasLoginURI -->
 
     <owl:ObjectProperty rdf:about="&vital;hasLoginURI">
         <rdfs:range rdf:resource="&vital;CredentialsLogin"/>
         <rdfs:domain rdf:resource="&vital;UserSession"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasProfileURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasProfileURI">
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
+        <rdfs:range rdf:resource="&vital;Login"/>
     </owl:ObjectProperty>
     
 
@@ -133,10 +151,19 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasFileLength -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasFileLength">
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
+        <rdfs:range rdf:resource="&xsd;long"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasFileName -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasFileName">
-        <rdfs:domain rdf:resource="&vital;File"/>
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -147,7 +174,7 @@
     <owl:DatatypeProperty rdf:about="&vital;hasFileScope">
         <rdfs:comment xml:lang="en">public
 private</rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;File"/>
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -156,7 +183,7 @@ private</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#hasFileType -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasFileType">
-        <rdfs:domain rdf:resource="&vital;File"/>
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -166,7 +193,7 @@ private</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;hasFileURL">
         <rdfs:comment xml:lang="en">full file URL</rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;File"/>
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
@@ -260,15 +287,6 @@ private</rdfs:comment>
     <owl:DatatypeProperty rdf:about="&vital;hasNextExecutionTime">
         <rdfs:domain rdf:resource="&vital;Job"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
-    </owl:DatatypeProperty>
-    
-
-
-    <!-- http://vital.ai/ontology/vital#hasOwner -->
-
-    <owl:DatatypeProperty rdf:about="&vital;hasOwner">
-        <rdfs:domain rdf:resource="&vital;File"/>
-        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -563,9 +581,9 @@ private</rdfs:comment>
     
 
 
-    <!-- http://vital.ai/ontology/vital#File -->
+    <!-- http://vital.ai/ontology/vital#FileNode -->
 
-    <owl:Class rdf:about="&vital;File">
+    <owl:Class rdf:about="&vital;FileNode">
         <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:comment xml:lang="en">represents a simple file node</rdfs:comment>
     </owl:Class>

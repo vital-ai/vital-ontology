@@ -384,8 +384,15 @@ private</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isLocked">
         <rdfs:comment xml:lang="en">locked login cannot be modified</rdfs:comment>
-        <rdfs:domain rdf:resource="&vital;UserLogin"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital;Account"/>
+                    <rdf:Description rdf:about="&vital;UserLogin"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:DatatypeProperty>
     
 
@@ -403,6 +410,15 @@ private</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isRegularScript">
         <rdfs:domain rdf:resource="&vital;Datascript"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isRetired -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isRetired">
+        <rdfs:domain rdf:resource="&vital;Account"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     

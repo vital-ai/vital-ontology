@@ -380,6 +380,16 @@ private</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#isFirstElement -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isFirstElement">
+        <rdfs:comment xml:lang="en">marker for first element of the linked list, it stands for the linked list itself</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;ListElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#isLocked -->
 
     <owl:DatatypeProperty rdf:about="&vital;isLocked">
@@ -560,6 +570,16 @@ private</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#Edge_hasNextElement -->
+
+    <owl:Class rdf:about="&vital;Edge_hasNextElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_PeerEdge"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;ListElement"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;ListElement"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#Edge_hasUserLogin -->
 
     <owl:Class rdf:about="&vital;Edge_hasUserLogin">
@@ -675,6 +695,15 @@ private</rdfs:comment>
     <owl:Class rdf:about="&vital;Job">
         <rdfs:subClassOf rdf:resource="&vital;Datascript"/>
         <rdfs:comment xml:lang="en">represents an installed recurring Datascript (Job)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#ListElement -->
+
+    <owl:Class rdf:about="&vital;ListElement">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <rdfs:comment xml:lang="en">part of linked list implementation</rdfs:comment>
     </owl:Class>
     
 

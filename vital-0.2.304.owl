@@ -454,6 +454,7 @@ private</rdfs:comment>
 
     <rdf:Description rdf:about="&vital-core;hasPassword">
         <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:domain rdf:resource="&vital;LoginAuth"/>
     </rdf:Description>
     
 
@@ -478,6 +479,7 @@ private</rdfs:comment>
 
     <rdf:Description rdf:about="&vital-core;hasUsername">
         <rdfs:domain rdf:resource="&vital;CredentialsLogin"/>
+        <rdfs:domain rdf:resource="&vital;LoginAuth"/>
     </rdf:Description>
     
 
@@ -566,6 +568,17 @@ private</rdfs:comment>
     <owl:Class rdf:about="&vital;Duration">
         <rdfs:subClassOf rdf:resource="&vital;Thing"/>
         <rdfs:comment>(“2 hours”)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasLoginAuth -->
+
+    <owl:Class rdf:about="&vital;Edge_hasLoginAuth">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Edge"/>
+        <vital-core:isVitalInternal rdf:datatype="&xsd;boolean">true</vital-core:isVitalInternal>
+        <vital-core:hasEdgeSrcDomain rdf:resource="&vital;CredentialsLogin"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="&vital;LoginAuth"/>
     </owl:Class>
     
 
@@ -722,6 +735,15 @@ private</rdfs:comment>
     <owl:Class rdf:about="&vital;Login">
         <rdfs:subClassOf rdf:resource="&vital;CredentialsLogin"/>
         <rdfs:comment xml:lang="en">credentials login, username password</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#LoginAuth -->
+
+    <owl:Class rdf:about="&vital;LoginAuth">
+        <rdfs:subClassOf rdf:resource="&vital-core;VITAL_Node"/>
+        <vital-core:isVitalInternal rdf:datatype="&xsd;boolean">true</vital-core:isVitalInternal>
     </owl:Class>
     
 

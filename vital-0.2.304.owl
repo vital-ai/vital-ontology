@@ -39,11 +39,66 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasAccountAccessURIs -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasAccountAccessURIs">
+        <vital-core:hasMultipleValues rdf:datatype="&xsd;boolean">true</vital-core:hasMultipleValues>
+        <rdfs:range rdf:resource="&vital;Account"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAccountOwnerURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasAccountOwnerURI">
+        <rdfs:range rdf:resource="&vital;Account"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasAccountURI -->
 
     <owl:ObjectProperty rdf:about="&vital;hasAccountURI">
         <rdfs:range rdf:resource="&vital;Account"/>
         <rdfs:domain rdf:resource="&vital;FileNode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasLoginOwnerURI -->
+
+    <owl:ObjectProperty rdf:about="&vital;hasLoginOwnerURI">
+        <rdfs:range rdf:resource="&vital;UserLogin"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&vital-core;VITAL_Edge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="&vital-core;VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
     </owl:ObjectProperty>
     
 
@@ -145,6 +200,7 @@
     <!-- http://vital.ai/ontology/vital#hasExpirationDate -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasExpirationDate">
+        <rdfs:domain rdf:resource="&vital;FileNode"/>
         <rdfs:domain rdf:resource="&vital;UserSession"/>
         <rdfs:range rdf:resource="&xsd;dateTime"/>
     </owl:DatatypeProperty>

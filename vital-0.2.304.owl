@@ -141,6 +141,28 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasAccountID -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAccountID">
+        <rdfs:comment xml:lang="en">globally unique id that is used for account scoped logins for
+accountID -&gt; suffix mapping
+x@example.org|1234567</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Account"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasAccountLoginSuffix -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasAccountLoginSuffix">
+        <rdfs:comment xml:lang="en">optional suffx added to logins that allows for account scoped logins</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Account"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasCertainty -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasCertainty">
@@ -175,6 +197,16 @@
     <owl:DatatypeProperty rdf:about="&vital;hasDegree">
         <rdfs:domain rdf:resource="&vital-core;VITAL_Node"/>
         <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasEmailAddress -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasEmailAddress">
+        <rdfs:comment xml:lang="en">for email verification purposes</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;UserLogin"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     
 
@@ -485,6 +517,15 @@ private</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="&vital;isRetired">
         <rdfs:domain rdf:resource="&vital;Account"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isServiceLogin -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isServiceLogin">
+        <rdfs:domain rdf:resource="&vital;Login"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     

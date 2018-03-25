@@ -370,6 +370,18 @@ private</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasLocalLoginsType -->
+
+    <owl:DatatypeProperty rdf:about="&vital;hasLocalLoginsType">
+        <rdfs:comment xml:lang="en">email,
+mobile,
+alphanumeric</rdfs:comment>
+        <rdfs:domain rdf:resource="&vital;Account"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasNextExecutionTime -->
 
     <owl:DatatypeProperty rdf:about="&vital;hasNextExecutionTime">
@@ -473,6 +485,15 @@ private</rdfs:comment>
     <owl:DatatypeProperty rdf:about="&vital;isFirstElement">
         <rdfs:comment xml:lang="en">marker for first element of the linked list, it stands for the linked list itself</rdfs:comment>
         <rdfs:domain rdf:resource="&vital;ListElement"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#isLocalLoginsValidated -->
+
+    <owl:DatatypeProperty rdf:about="&vital;isLocalLoginsValidated">
+        <rdfs:domain rdf:resource="&vital;Account"/>
         <rdfs:range rdf:resource="&xsd;boolean"/>
     </owl:DatatypeProperty>
     

@@ -725,7 +725,17 @@ HiveSQL</rdfs:comment>
     <!-- http://vital.ai/ontology/vital-core#hasName -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-core#hasName">
-        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    	<rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
         <rdfs:range rdf:resource="&xsd;string"/>
     </owl:DatatypeProperty>
     

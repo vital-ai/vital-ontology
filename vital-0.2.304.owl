@@ -673,7 +673,7 @@ alphanumeric</rdfs:comment>
     <!-- http://vital.ai/ontology/vital#Edge_hasLoginAuth -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital#Edge_hasLoginAuth">
-        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
         <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital#LoginAuth"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#CredentialsLogin"/>
         <vital-core:isVitalInternal rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</vital-core:isVitalInternal>

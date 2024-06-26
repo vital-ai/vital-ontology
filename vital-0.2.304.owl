@@ -119,6 +119,76 @@
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasVitalOntClassURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntClassURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntDataType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntDataType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntEdgeType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntEdgeType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#Edge_hasVitalOntNode"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntEdgeURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntEdgeURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#Edge_hasVitalOntNode"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntEdge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntHyperEdgeType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntHyperEdgeType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntHyperEdge"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntHyperEdgeType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntHyperNodeType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntHyperNodeType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntHyperNode"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntHyperNodeType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntNodeType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntNodeType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/vital#VitalOntNodeType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntOntologyIRI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntOntologyIRI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -380,6 +450,44 @@ alphanumeric</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#hasObjectHash -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital#hasObjectHash">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasObjectModificationDateTime -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital#hasObjectModificationDateTime">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Edge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_GraphContainerObject"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperEdge"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_HyperNode"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://vital.ai/ontology/vital#hasPageRank -->
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital#hasPageRank">
@@ -427,6 +535,15 @@ alphanumeric</rdfs:comment>
 
     <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital#hasVitalDataScriptBody">
         <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalDataScript"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#hasVitalOntObjectDefinition -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital#hasVitalOntObjectDefinition">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
@@ -707,6 +824,16 @@ alphanumeric</rdfs:comment>
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
         <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital#UserSession"/>
         <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#Edge_hasVitalOntNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#Edge_hasVitalOntNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
     </owl:Class>
     
 
@@ -999,6 +1126,86 @@ alphanumeric</rdfs:comment>
     
 
 
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntDataType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntEdge">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntHyperEdge -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntHyperEdge">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntHyperEdgeType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntHyperEdgeType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntHyperNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntHyperNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntHyperNodeType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntHyperNodeType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital#VitalOntObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNodeType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntNodeType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntObject -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalOntObject">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
     <!-- http://vital.ai/ontology/vital#VitalRule -->
 
     <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalRule">
@@ -1012,6 +1219,258 @@ alphanumeric</rdfs:comment>
     <owl:Class rdf:about="http://vital.ai/ontology/vital#VitalRuleSet">
         <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
     </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_BOOLEAN -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_BOOLEAN">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_DATE_TIME -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_DATE_TIME">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_DOUBLE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_DOUBLE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_FLOAT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_FLOAT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_GEO_LOCATION -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_GEO_LOCATION">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_INTEGER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_INTEGER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_LONG -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_LONG">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_STRING -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_STRING">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntDataType_TRUTH -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntDataType_TRUTH">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_CLASS_PARENT_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_CLASS_PARENT_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_HAS_DOMAIN_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_HAS_DOMAIN_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_HAS_RANGE_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_HAS_RANGE_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_ONT_EDGE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_ONT_EDGE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_PROPERTY_PARENT_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_PROPERTY_PARENT_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_SUBCLASS_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_SUBCLASS_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntEdgeType_SUBPROPERTY_OF -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntEdgeType_SUBPROPERTY_OF">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntEdgeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNodeType_CLASS -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNodeType_CLASS">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNodeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNodeType_DATA_PROPERTY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNodeType_DATA_PROPERTY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNodeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNodeType_DATA_TYPE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNodeType_DATA_TYPE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNodeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNodeType_OBJECT_PROPERTY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNodeType_OBJECT_PROPERTY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNodeType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_BOOLEAN -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_BOOLEAN">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_BOOLEAN"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_DATE_TIME -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_DATE_TIME">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_DATE_TIME"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_DOUBLE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_DOUBLE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_DOUBLE"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_FLOAT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_FLOAT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_FLOAT"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_GEO_LOCATION -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_GEO_LOCATION">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_GEO_LOCATION"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_INTEGER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_INTEGER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_INTEGER"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_LONG -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_LONG">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_LONG"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_STRING -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_STRING">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_STRING"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_TRUTH -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/vital#VitalOntNode_DATA_TYPE_TRUTH">
+        <rdf:type rdf:resource="http://vital.ai/ontology/vital#VitalOntNode"/>
+        <hasVitalOntDataType rdf:resource="http://vital.ai/ontology/vital#VitalOntDataType_TRUTH"/>
+    </owl:NamedIndividual>
     
 
 

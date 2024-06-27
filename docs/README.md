@@ -1,4 +1,2 @@
-vital-ontology
-==============
+# Page
 
-Repository of Vital AI ontologies

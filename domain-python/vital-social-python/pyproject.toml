@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vital-ai-social"
+version = "0.1.6"
+description = "VitalSigns social domain"
+readme = "README.md"
+license = {text = "Apache License 2.0"}
+authors = [{name = "Marc Hadfield", email = "marc@vital.ai"}]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "vital-ai-domain>=0.1.9",
+    "vital-ai-nlp>=0.1.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/vital-ai/vitalhome-aimp"
+
+[project.entry-points."vitalsigns_packages"]
+"com_vitalai_domain_social" = "com_vitalai_domain_social"
+
+[tool.setuptools.packages.find]
+exclude = []
+
+[tool.setuptools.package-data]
+"*" = [
+    "*.pyi",
+]
+"com_vitalai_domain_social" = [
+    "domain-ontology/*.owl",
+]

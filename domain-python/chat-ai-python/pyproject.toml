@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vital-ai-chat"
+version = "0.1.21"
+description = "VitalSigns chat domain"
+readme = "README.md"
+license = {text = "Apache License 2.0"}
+authors = [{name = "Marc Hadfield", email = "marc@vital.ai"}]
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3.10",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "vital-ai-vitalsigns>=0.1.54",
+    "vital-ai-domain>=0.1.9",
+    "vital-ai-haley>=0.1.9",
+    "vital-ai-haley-kg>=0.1.25",
+    "vital-ai-haley-ml>=0.1.7",
+    "vital-ai-aimp>=0.1.17",
+]
+
+[project.urls]
+Homepage = "https://github.com/vital-ai/vitalhome-chat"
+
+[project.entry-points."vitalsigns_packages"]
+"ai_chat_domain" = "ai_chat_domain"
+
+[tool.setuptools.packages.find]
+exclude = []
+
+[tool.setuptools.package-data]
+"*" = [
+    "*.pyi",
+]
+"ai_chat_domain" = [
+    "domain-ontology/*.owl",
+]

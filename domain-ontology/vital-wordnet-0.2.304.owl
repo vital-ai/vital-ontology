@@ -1,0 +1,385 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://vital.ai/ontology/vital-wordnet#"
+     xml:base="http://vital.ai/ontology/vital-wordnet"
+     xmlns:vital-core="http://vital.ai/ontology/vital-core#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vital="http://vital.ai/ontology/vital#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/vital-wordnet">
+        <owl:imports rdf:resource="http://vital.ai/ontology/vital"/>
+        <vital-core:hasDefaultPackage rdf:datatype="http://www.w3.org/2001/XMLSchema#string">com.vitalai.domain.wordnet</vital-core:hasDefaultPackage>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.2.304</owl:versionInfo>
+        <vital-core:hasDefaultGroupId>vitalai-com</vital-core:hasDefaultGroupId>
+        <vital-core:hasDefaultArtifactId>vital-wordnet</vital-core:hasDefaultArtifactId>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#hasGloss -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-wordnet#hasGloss">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#hasWordnetID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/vital-wordnet#hasWordnetID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">a wordnet identifier, concatenation of POS and sysnset ID offset</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#AdjectiveSynsetNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#AdjectiveSynsetNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#AdverbSynsetNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#AdverbSynsetNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetAlsoSee -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetAlsoSee">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetAntonym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetAntonym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetAttribute -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetAttribute">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetCause -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetCause">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetDerivationallyRelatedForm -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetDerivationallyRelatedForm">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetDerivedFromAdjective -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetDerivedFromAdjective">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Region -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Region">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Topic -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Topic">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Usage -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetDomainOfSynset_Usage">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetEntailment -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetEntailment">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetHypernym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetHypernym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetHyponym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetHyponym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetInstanceHypernym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetInstanceHypernym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetInstanceHyponym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetInstanceHyponym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberHolonym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberHolonym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberMeronym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberMeronym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Region -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Region">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Topic -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Topic">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Usage -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetMemberOfThisDomain_Usage">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetPartHolonym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetPartHolonym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetPartMeronym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetPartMeronym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetParticiple -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetParticiple">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetPertainym_PertainsToNouns -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetPertainym_PertainsToNouns">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetSimilarTo -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetSimilarTo">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#AdjectiveSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#AdjectiveSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetSubstanceHolonym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetSubstanceHolonym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetSubstanceMeronym -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetSubstanceMeronym">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#NounSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_WordnetVerbGroup -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_WordnetVerbGroup">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#Edge_hasWordnetPointer">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+        <rdfs:comment xml:lang="en">an edge representing a wordnet pointer (connection)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#NounSynsetNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#NounSynsetNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#SynsetNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#SynsetNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-wordnet#VerbSynsetNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/vital-wordnet#VerbSynsetNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-wordnet#SynsetNode"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

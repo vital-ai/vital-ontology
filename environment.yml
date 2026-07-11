@@ -1,0 +1,11 @@
+name: vital-ontology
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - setuptools
+  - wheel
+  - pip:
+    - vital-ai-vitalsigns>=0.1.54

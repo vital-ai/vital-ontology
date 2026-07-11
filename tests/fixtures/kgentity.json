@@ -1,0 +1,10 @@
+{
+  "URI": "http://vital.ai/test/interop/entity-1",
+  "http://vital.ai/ontology/vital-core#hasName": "interop entity",
+  "http://vital.ai/ontology/haley-ai-kg#hasKGEntityTypeDescription": "interop test entity",
+  "type": "http://vital.ai/ontology/haley-ai-kg#KGEntity",
+  "http://vital.ai/ontology/vital-core#vitaltype": "http://vital.ai/ontology/haley-ai-kg#KGEntity",
+  "types": [
+    "http://vital.ai/ontology/haley-ai-kg#KGEntity"
+  ]
+}

@@ -17,7 +17,7 @@ DOMAINS := $(shell $(PYTHON) tools/domain_order.py)
 # all other domains under domain-python/
 pkgdir = $(if $(filter vital-domain-python,$(1)),vital-domain-python,domain-python/$(1))
 
-.PHONY: help deps order check-imports generate verify build test-install publish clean \
+.PHONY: help deps order check-imports generate verify test build test-install publish clean \
 	$(addprefix generate-,$(DOMAINS)) $(addprefix verify-,$(DOMAINS)) \
 	$(addprefix build-,$(DOMAINS)) $(addprefix publish-,$(DOMAINS))
 
@@ -29,6 +29,7 @@ help:
 	@echo "  generate-<domain>  generate one domain (e.g. generate-haley-python)"
 	@echo "  verify             generate + compare all domains against committed code"
 	@echo "  verify-<domain>    generate + compare one domain"
+	@echo "  test               run the domain functionality test suite (tests/)"
 	@echo "  deps               install build/publish tools (build, twine)"
 	@echo "  build              build sdist+wheel for all domains in dependency order"
 	@echo "  build-<domain>     build one domain package"
@@ -53,6 +54,9 @@ verify: $(addprefix verify-,$(DOMAINS))
 
 $(addprefix verify-,$(DOMAINS)): verify-%: generate-%
 	@$(PYTHON) tools/compare_generated.py $* --generated-base $(OUTPUT_BASE)
+
+test:
+	$(PYTHON) -m pytest tests/ -q
 
 deps:
 	$(PYTHON) -m pip install --upgrade build twine

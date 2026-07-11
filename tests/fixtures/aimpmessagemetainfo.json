@@ -1,0 +1,9 @@
+{
+  "URI": "http://vital.ai/test/interop/meta-1",
+  "http://vital.ai/ontology/vital-core#hasName": "interop meta",
+  "type": "http://vital.ai/ontology/chat-ai#AIMPMessageMetaInfo",
+  "http://vital.ai/ontology/vital-core#vitaltype": "http://vital.ai/ontology/chat-ai#AIMPMessageMetaInfo",
+  "types": [
+    "http://vital.ai/ontology/chat-ai#AIMPMessageMetaInfo"
+  ]
+}

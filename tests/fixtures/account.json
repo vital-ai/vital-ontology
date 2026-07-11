@@ -1,0 +1,10 @@
+{
+  "URI": "http://vital.ai/test/interop/account-1",
+  "http://vital.ai/ontology/vital-core#hasName": "interop account",
+  "http://vital.ai/ontology/vital#hasAccountID": "interop-account-id",
+  "type": "http://vital.ai/ontology/vital#Account",
+  "http://vital.ai/ontology/vital-core#vitaltype": "http://vital.ai/ontology/vital#Account",
+  "types": [
+    "http://vital.ai/ontology/vital#Account"
+  ]
+}

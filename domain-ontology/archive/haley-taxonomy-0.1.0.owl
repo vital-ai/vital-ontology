@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://vital.ai/ontology/haley-taxonomy#"
+     xml:base="http://vital.ai/ontology/haley-taxonomy"
+     xmlns:haley="http://vital.ai/ontology/haley#"
+     xmlns:vital-core="http://vital.ai/ontology/vital-core#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vital-aimp="http://vital.ai/ontology/vital-aimp#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/haley-taxonomy">
+        <owl:imports rdf:resource="http://vital.ai/ontology/haley"/>
+        <vital-core:hasDefaultArtifactId>haley-taxonomy</vital-core:hasDefaultArtifactId>
+        <vital-core:hasDefaultPackage>com.vitalai.haley.taxonomy.domain</vital-core:hasDefaultPackage>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+        <vital-core:hasDefaultGroupId>vitalai-com</vital-core:hasDefaultGroupId>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#hasDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-taxonomy#hasDescription">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasBroaderCategory"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasEquivalentCategory"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasNarrowerCategory"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasRelatedCategory"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#hasExternalID -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-taxonomy#hasExternalID">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#isLeafCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-taxonomy#isLeafCategory">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#isRootCategory -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-taxonomy#isRootCategory">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#isSelectable -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-taxonomy#isSelectable">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#Edge_hasBroaderCategory -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasBroaderCategory">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#Edge_hasEquivalentCategory -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasEquivalentCategory">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#Edge_hasNarrowerCategory -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasNarrowerCategory">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#Edge_hasRelatedCategory -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-taxonomy#Edge_hasRelatedCategory">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-taxonomy#TaxonomyNode -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-taxonomy#TaxonomyNode">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

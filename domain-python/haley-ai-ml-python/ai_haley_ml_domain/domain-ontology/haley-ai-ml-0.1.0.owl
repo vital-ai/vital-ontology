@@ -1,0 +1,1363 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://vital.ai/ontology/haley-ai-ml#"
+     xml:base="http://vital.ai/ontology/haley-ai-ml"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:haley="http://vital.ai/ontology/haley#"
+     xmlns:vital="http://vital.ai/ontology/vital#"
+     xmlns:vital-aimp="http://vital.ai/ontology/vital-aimp#"
+     xmlns:vital-core="http://vital.ai/ontology/vital-core#"
+     xmlns:haley-ai-question="http://vital.ai/ontology/haley-ai-question#">
+    <owl:Ontology rdf:about="http://vital.ai/ontology/haley-ai-ml">
+        <owl:imports rdf:resource="http://vital.ai/ontology/haley-ai-question"/>
+        <vital-core:hasDefaultArtifactId>haley-ai-ml</vital-core:hasDefaultArtifactId>
+        <vital-core:hasDefaultGroupId rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vitalai-com</vital-core:hasDefaultGroupId>
+        <vital-core:hasDefaultPackage>ai.haley.ml.domain</vital-core:hasDefaultPackage>
+        <owl:versionInfo>0.1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasFeatureType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasFeatureType">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-question#HaleyAnswerType"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasFeatureURIValue -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasFeatureURIValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotTypeURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotTypeURI">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlot"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotSymbol"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlot"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyPromptURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyPromptURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#PromptMindRequest"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionModelClassURI -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionModelClassURI">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionModelProvider -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionModelProvider">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionModelStructureType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionModelStructureType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionModelType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionModelType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelStructureType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelStructureType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetType -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetType">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetURIValue -->
+
+    <owl:ObjectProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetURIValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasActorSequence -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasActorSequence">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#ActorMindRequest"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasFeatureKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasFeatureKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasFeatureStringValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasFeatureStringValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasFeatureWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasFeatureWeight">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentScore -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentScore">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotContent -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotContent">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotEndRange -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotEndRange">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotScore -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotScore">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotStartRange -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSlotStartRange">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSourceText -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasHaleyIntentSourceText">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasModelIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasModelIdentifier">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasModelIntentIdentifier -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasModelIntentIdentifier">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionImplementingClass -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionImplementingClass">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This is used in the case of prediction type of Other to provide an implementing class name that must implement the interface.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPredictionModelEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPredictionModelEndpoint">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This is the REST endpoint that will receive the request and return the prediction response.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasPromptString -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasPromptString">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasRecommendationImplementingClass -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasRecommendationImplementingClass">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This is used in the case of recommendation type of Other to provide an implementing class name that must implement the interface.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelEndpoint -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasRecommendationModelEndpoint">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>This is the REST URL which will be used to post a request and receive recommendation response.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasSelectedPredictionModelName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasSelectedPredictionModelName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPredictionModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasSelectedPromptName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasSelectedPromptName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPrompt"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasSelectedRecommendationModelName -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasSelectedRecommendationModelName">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedRecommendationModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetBooleanValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetBooleanValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetDoubleValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetDoubleValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetEncodedStringValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetEncodedStringValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetIntegerValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetIntegerValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetKey -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetKey">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetStringValue -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetStringValue">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasTargetWeight -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasTargetWeight">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#hasVersion -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#hasVersion">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#isGlobalPredictionModel -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#isGlobalPredictionModel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPredictionModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#isGlobalPrompt -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#isGlobalPrompt">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPrompt"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#isGlobalRecommendationModel -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#isGlobalRecommendationModel">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedRecommendationModel"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#isStreamModelResults -->
+
+    <owl:DatatypeProperty rdf:about="http://vital.ai/ontology/haley-ai-ml#isStreamModelResults">
+        <rdfs:domain rdf:resource="http://vital.ai/ontology/haley-ai-ml#ActorMindRequest"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://vital.ai/ontology/vital-aimp#hasParameterValue -->
+
+    <rdf:Description rdf:about="http://vital.ai/ontology/vital-aimp#hasParameterValue">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelInput"/>
+                    <rdf:Description rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelInput"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#ActorMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#ActorMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#AddContextMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#AddContextMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasFeatureValue -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasFeatureValue">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureValue"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasHaleyIntentSlot -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasHaleyIntentSlot">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlot"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasHaleyIntentSlotIntance -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasHaleyIntentSlotIntance">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasPredictionModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasPredictionModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasPredictionModelInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasPredictionModelInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelInput"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPredictAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasPrompt -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasPrompt">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasPromptInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasPromptInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#PromptInput"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPredictAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasRecommendationModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasRecommendationModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital#Account"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasRecommendationModelInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasRecommendationModelInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelInput"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogRecommend"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPredictionModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPredictionModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPredictAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPrompt -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedPrompt">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPredictAction"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedRecommendationModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasSelectedRecommendationModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_TaxonomyEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/vital-aimp#DialogRecommend"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#Edge_hasTargetValue -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#Edge_hasTargetValue">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_PeerEdge"/>
+        <vital-core:hasEdgeDestDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetValue"/>
+        <vital-core:hasEdgeSrcDomain rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetGroup"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureGroup -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureGroup">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureValue -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureValue">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntent -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntent">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentInstance">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlot -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlot">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotInstance">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotSymbol -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotSymbol">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyIntentSlotType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPrompt -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPrompt">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyRecommendationModel">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PrefetchDataMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PrefetchDataMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PromptInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PromptInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PromptMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PromptMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PurgeDataMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#PurgeDataMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelInput -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelInput">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-aimp#DialogPart"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RemoveContextMindRequest -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#RemoveContextMindRequest">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/haley#HaleyMindRequest"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetGroup -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetGroup">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetValue -->
+
+    <owl:Class rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetValue">
+        <rdfs:subClassOf rdf:resource="http://vital.ai/ontology/vital-core#VITAL_Node"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureType_CATEGORY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureType_CATEGORY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CATEGORY</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureType_NUMBER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureType_NUMBER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NUMBER</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#FeatureType_WORD -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#FeatureType_WORD">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#FeatureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WORD</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_AWS_Polly -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_AWS_Polly">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_General -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_General">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley General</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Ludwig -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Ludwig">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley Ludwig</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_PyG -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_PyG">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley PyG</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Pytorch -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Pytorch">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley PyTorch</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Tensorflow -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Haley_Tensorflow">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley Tensorflow</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_ChatGPT3 -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_ChatGPT3">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_DALL_E -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_DALL_E">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_DALL_E_2 -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_DALL_E_2">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT2 -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT2">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT3 -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT3">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OpenAI GPT3</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT4 -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_OpenAI_GPT4">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OpenAI GPT4</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Replicate_OpenJourney -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Replicate_OpenJourney">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Replicate_StableDiffusion -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass_Replicate_StableDiffusion">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#HaleyPredictionModelClass"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_AWS -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_AWS">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AWS</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_HALEY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_HALEY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_HUGGINGFACE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_HUGGINGFACE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HuggingFace</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_OPENAI -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_OPENAI">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OpenAI</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_REPLICATE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider_REPLICATE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelProvider"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Replicate</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_FLAT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_FLAT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Flat Structure</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_FLAT_SEQ -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_FLAT_SEQ">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Flat and Sequence Structure</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_GRAPH -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_GRAPH">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Graph</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_PROMPT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_PROMPT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prompt</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_SEQ -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType_SEQ">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequence Structure</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_AUTOML_GS -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_AUTOML_GS">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">AutoML GS Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_DIFFUSION_IMAGE_MODEL -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_DIFFUSION_IMAGE_MODEL">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Diffusion Image Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_OTHER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General Haley Prediction Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_PYG -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_PYG">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PyG</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_PYTORCH -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_PYTORCH">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PyTorch</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_TENSORFLOW -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_HALEY_TENSORFLOW">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Haley Tensorflow Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_LARGE_LANGUAGE_MODEL -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_LARGE_LANGUAGE_MODEL">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Large Language Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_LUDWIG -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_LUDWIG">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ludwig Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_POLLY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_POLLY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Polly</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#PredictionModelType_WHISPER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#PredictionModelType_WHISPER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#PredictionModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Whisper</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_COLLAB_CONTENT_HYBRID -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_COLLAB_CONTENT_HYBRID">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hybrid Collaborative Filter and Content</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_COLLAB_FILTER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_COLLAB_FILTER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Collaborative Filter</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_CONTENT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType_CONTENT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelStructureType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Content</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_HALEY_OTHER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_HALEY_OTHER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">General Haley Recommendation Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_PREDICTION_IO -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_PREDICTION_IO">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Prediction IO Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_TENSORREC -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType_TENSORREC">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#RecommendationModelType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TensorRec Model</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_AUDIO -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_AUDIO">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Audio</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_BOOLEAN -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_BOOLEAN">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_CATEGORY -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_CATEGORY">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">CATEGORY</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_IMAGE -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_IMAGE">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Image</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_NUMBER -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_NUMBER">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NUMBER</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_TEXT -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_TEXT">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Text</vital-core:hasName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://vital.ai/ontology/haley-ai-ml#TargetType_WORD -->
+
+    <owl:NamedIndividual rdf:about="http://vital.ai/ontology/haley-ai-ml#TargetType_WORD">
+        <rdf:type rdf:resource="http://vital.ai/ontology/haley-ai-ml#TargetType"/>
+        <vital-core:hasName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WORD</vital-core:hasName>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

@@ -1,2 +1,26 @@
 **/.DS_Store
 
+planning
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# package build artifacts (per-domain build/ and dist/ dirs)
+domain-python/*/build/
+domain-python/*/dist/
+vital-domain-python/build/
+vital-domain-python/dist/
+
+# repo-level generation scratch dir (make generate output)
+/build/
+
+# vitalsigns local VITAL_HOME cache
+vitalhome/domain-cache/
+
+# envs / editors
+.venv/
+venv/
+.idea/
+.vscode/

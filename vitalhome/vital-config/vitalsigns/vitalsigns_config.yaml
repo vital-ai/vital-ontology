@@ -1,0 +1,203 @@
+vitalsigns:
+  logging:
+    level: ERROR
+vitalservice:
+  - name: local_service
+    namespace: "VITALTEST"
+    base_uri: "http://vital.ai"
+    graph_database:
+      username: "marc"
+      password: "mittens97"
+      endpoint: "http://localhost:8890/"
+      database_type: "virtuoso"
+      connection_type: "rest"
+      server_name: "server_name"
+      server_user: "server_user"
+      server_dataset_dir: "server_dataset_dir"
+      pem_path: "pem_path"
+    vector_database:
+      endpoint: "localhost"
+      vector_endpoint: "localhost"
+      grpc_endpoint: "localhost"
+      api_key: "apikey1"
+      vector_database_type: "weaviate"
+      vector_database_schema_list: [ "kgraph_weaviate_schema.yaml" ]
+      embedding_models:
+        - id: model_1
+          endpoint: https://example.com/api/endpoint_1
+          model_type: model_type_1
+          api_key: your_api_key_1
+          overflow_policy: DEFAULT
+          max_tokens: 123
+        - id: model_2
+          endpoint: https://example.com/api/endpoint_2
+          model_type: model_type_2
+          api_key: your_api_key_2
+          overflow_policy: DEFAULT
+          max_tokens: 123
+      collections:
+        - class_uri: urn:KGEntity
+          embedding_models:
+            value: model_1
+            type: model_2
+        - class_uri: urn:KGSlot
+          embedding_models:
+            value: model_3
+            type: model_1
+        - class_uri: urn:KGFrame
+          embedding_models:
+            value: model_2
+            type: model_3
+        - class_uri: urn:Edge_hasKGRelation
+          embedding_models:
+            value: model_2
+            type: model_3
+  - name: local_kgraph
+    namespace: "KGRAPH"
+    base_uri: "http://vital.ai"
+    graph_database:
+      username: "marc"
+      password: "mittens97"
+      endpoint: "http://localhost:8890/"
+      database_type: "virtuoso"
+      connection_type: "rest"
+      server_name: "localhost"
+      server_user: "hadfield"
+      server_dataset_dir: "/Users/hadfield/Desktop/"
+      pem_path: "/Users/hadfield/Local/vital-git/vital-vitalsigns-python/authentication/local_mac_key.pem"
+    vector_database:
+      endpoint: "localhost"
+      vector_endpoint: "localhost"
+      grpc_endpoint: "localhost"
+      api_key: "apikey1"
+      vector_database_type: "weaviate"
+      vector_database_schema_list: [ "kgraph_weaviate_schema.yaml" ]
+      embedding_models:
+        - id: model_1
+          endpoint: localhost
+          model_type: model_type_1
+          api_key: your_api_key_1
+          overflow_policy: DEFAULT
+          max_tokens: 123
+      collections:
+        - class_uri: urn:KGAgent
+          embedding_models:
+            value: model_1
+            type: model_1
+        - class_uri: urn:KGEntity
+          embedding_models:
+            value: model_1
+            type: model_1
+        - class_uri: urn:KGSlot
+          embedding_models:
+            value: model_3
+            type: model_1
+        - class_uri: urn:KGFrame
+          embedding_models:
+            value: model_2
+            type: model_3
+        - class_uri: urn:Edge_hasKGRelation
+          embedding_models:
+            value: model_2
+            type: model_3
+  - name: testing_kgraph
+    namespace: "kgraph"
+    base_uri: "http://vital.ai"
+    graph_database:
+      username: "marc"
+      password: "mittens97"
+      endpoint: "http://localhost:8890/"
+      database_type: "virtuoso"
+      connection_type: "rest"
+      server_name: "localhost"
+      server_user: "hadfield"
+      server_dataset_dir: "/Users/hadfield/Desktop/"
+      pem_path: "/Users/hadfield/Local/vital-git/vital-vitalsigns-python/authentication/local_mac_key.pem"
+    vector_database:
+      endpoint: "http://example.com/vectordb"
+      vector_endpoint: "localhost"
+      grpc_endpoint: "localhost"
+      api_key: "apikey1"
+      vector_database_type: "weaviate"
+      vector_database_schema_list: [ "kgraph_weaviate_schema.yaml" ]
+      embedding_models:
+        - id: model_1
+          endpoint: https://example.com/api/endpoint_1
+          model_type: model_type_1
+          api_key: your_api_key_1
+          overflow_policy: DEFAULT
+          max_tokens: 123
+        - id: model_2
+          endpoint: https://example.com/api/endpoint_2
+          model_type: model_type_2
+          api_key: your_api_key_2
+          overflow_policy: DEFAULT
+          max_tokens: 123
+      collections:
+        - class_uri: urn:KGEntity
+          embedding_models:
+            value: model_1
+            type: model_2
+        - class_uri: urn:KGSlot
+          embedding_models:
+            value: model_3
+            type: model_1
+        - class_uri: urn:KGFrame
+          embedding_models:
+            value: model_2
+            type: model_3
+        - class_uri: urn:Edge_hasKGRelation
+          embedding_models:
+            value: model_2
+            type: model_3
+  - name: local_kgraph_test
+    namespace: "KGRAPH_TEST"
+    base_uri: "http://vital.ai"
+    graph_database:
+      username: "marc"
+      password: "mittens97"
+      endpoint: "http://localhost:8890/"
+      database_type: "virtuoso"
+      connection_type: "rest"
+      server_name: "localhost"
+      server_user: "hadfield"
+      server_dataset_dir: "/Users/hadfield/Desktop/"
+      pem_path: "/Users/hadfield/Local/vital-git/vital-vitalsigns-python/authentication/local_mac_key.pem"
+    vector_database:
+      endpoint: "localhost"
+      vector_endpoint: "localhost"
+      grpc_endpoint: "localhost"
+      api_key: "apikey1"
+      vector_database_type: "weaviate"
+      vector_database_schema_list: [ "kgraph_weaviate_schema.yaml" ]
+      embedding_models:
+        - id: model_1
+          endpoint: https://example.com/api/endpoint_1
+          model_type: model_type_1
+          api_key: your_api_key_1
+          overflow_policy: DEFAULT
+          max_tokens: 123
+        - id: model_2
+          endpoint: https://example.com/api/endpoint_2
+          model_type: model_type_2
+          api_key: your_api_key_2
+          overflow_policy: DEFAULT
+          max_tokens: 123
+      collections:
+        - class_uri: urn:KGEntity
+          embedding_models:
+            value: model_1
+            type: model_2
+        - class_uri: urn:KGSlot
+          embedding_models:
+            value: model_3
+            type: model_1
+        - class_uri: urn:KGFrame
+          embedding_models:
+            value: model_2
+            type: model_3
+        - class_uri: urn:Edge_hasKGRelation
+          embedding_models:
+            value: model_2
+            type: model_3
+
